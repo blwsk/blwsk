@@ -1,0 +1,141 @@
+/* reset */
+* {
+  border: 0;
+  margin: 0;
+  padding: 0;
+  outline: none; }
+
+/* general */
+html,
+body {
+  height: 100%;
+  background: #eceef1;
+  font-family: "adelle-sans", verdana, sans-serif;
+  font-variant: normal;
+  font-weight: 400;
+  font-size: 16px;
+  color: #333333;
+  -webkit-font-smoothing: antialiased;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.004); }
+
+a {
+  color: rgba(166, 168, 171, 0.75);
+  font-size: 24px;
+  text-decoration: none; }
+
+textarea {
+  width: 760px;
+  height: 70px;
+  /*
+  border-bottom: 2px solid $bg;
+  */
+  background: transparent;
+  font-family: "adelle", georgia, serif;
+  font-size: 42px;
+  line-height: 60px;
+  color: #888a8d;
+  padding: 0 20px 7px 20px;
+  outline: none;
+  resize: none; }
+
+::-webkit-input-placeholder {
+  color: #d8dadd; }
+
+::-webkit-scrollbar {
+  display: none; }
+
+.container {
+  height: 100%;
+  width: 1000px;
+  margin: 0 auto; }
+
+.col-left {
+  float: left;
+  padding: 20px 20px 20px 20px; }
+
+.col-center {
+  float: left;
+  background: white;
+  width: 800px;
+  /*
+  padding: 20px 0 0 0;
+  */
+  overflow: auto; }
+
+.col-right {
+  float: right;
+  padding: 20px 20px 20px 20px; }
+
+/* styles */
+.logo {
+  background: #c4c6c9;
+  height: 60px;
+  width: 60px;
+  text-align: center; }
+  .logo span {
+    padding: 17px; }
+
+.add-task {
+  position: fixed;
+  background: rgba(255, 255, 255, 0.98);
+  padding: 20px 0 0 0;
+  box-shadow: 0 1px 1px 0px #eceef1;
+  overflow: auto;
+  z-index: 1000; }
+
+.task-list {
+  width: 100%;
+  padding-top: 105px; }
+
+.task {
+  height: 100%;
+  /*
+  border-bottom: 2px solid rgb(236,238,241);
+  */
+  box-shadow: 0 1px 1px 0px #eceef1;
+  padding: 20px;
+  cursor: pointer;
+  cursor: hand;
+  overflow: auto; }
+
+.task-title {
+  float: left;
+  font-family: "adelle", georgia, serif;
+  font-size: 36px;
+  color: #888a8d; }
+
+.task-archive,
+.task-delete {
+  float: right;
+  font-size: 20px;
+  margin-left: 10px;
+  -webkit-transition: opacity 0.2s; }
+
+.task-archive {
+  color: #56bc8a;
+  opacity: 0.20; }
+
+.task-delete {
+  color: #ea6950;
+  opacity: 0.15; }
+
+.task-archive:hover,
+.task-delete:hover {
+  opacity: 1.0; }
+
+ul.nav li {
+  width: 60px;
+  text-decoration: none;
+  display: block; }
+ul.nav a {
+  font-size: 14px; }
+ul.nav a:hover {
+  color: #a6a8ab; }
+
+.user,
+.archive,
+.more {
+  font-weight: 900; }
+
+.more-glyph {
+  font-size: 10px; }
