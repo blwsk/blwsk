@@ -1,5 +1,6 @@
 var express = require('express');
 var app = express();
+app.use(express.logger());
 
 /*
   Load static files
@@ -40,5 +41,7 @@ app.get('/api', function(req, res) {
 });
 
 
-app.listen(process.env.PORT || 3000);
-console.log('Listening on port 3000');
+var port = process.env.PORT || 5000;
+app.listen(port, function() {
+  console.log("Listening on " + port);
+});

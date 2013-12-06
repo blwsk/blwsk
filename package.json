@@ -1,10 +1,26 @@
 {
   "name": "blwsk",
   "description": "blwsk",
-  "version": "0.0.1",
-  "private": true,
+  "version": "0.0.3",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
   "dependencies": {
     "express": "3.4.4",
-      "hbs": "*"
-  }
+    "hbs": "*"
+  },
+  "engines": {
+    "node": "0.10.x",
+    "npm": "1.3.x"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kevinbielawski/blwsk.git"
+  },
+  "keywords": [
+    "blwsk"
+  ],
+  "author": "Kevin Bielawski",
+  "license": "BSD"
 }
