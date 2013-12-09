@@ -124,7 +124,7 @@ ul li {
 }
 h1, h2, h3, h4, h5, h6, p, article {
   max-width: 700px;
-  margin-bottom: 15px;
+  margin-bottom: 25px;
 }
 h2 {
   font-weight: 100;
@@ -192,6 +192,10 @@ iframe {
     height: 100%;
     margin-left: 0;
     padding: 57px 20px 0 20px;
+  }
+
+  h1, h2, h3, h4, h5, h6, p, article {
+    margin-bottom: 15px;
   }
 
 }
