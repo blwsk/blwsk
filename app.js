@@ -32,6 +32,10 @@ app.get('/projects', function(req, res) {
   res.render('projects');
 });
 
+app.get('/lottery', function(req, res) {
+  res.render('lottery-solver');
+});
+
 
 /*
   API
