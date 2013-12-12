@@ -1,6 +1,6 @@
-var express = require('express');
-var app = express();
-app.use(express.logger());
+var express = require('express'),
+    exphbs  = require('express3-handlebars'), // "express3-handlebars"
+    app = express();
 
 /*
   Load static files
@@ -12,9 +12,8 @@ app.use(express.static(__dirname + '/views'));
 /*
   Handlebars template engine
 */
-var hbs = require('hbs');
-app.set('view engine', 'html');
-app.engine('html', require('hbs').__express);
+app.engine('handlebars', exphbs({defaultLayout: 'main'}));
+app.set('view engine', 'handlebars');
 
 
 /*
@@ -33,7 +32,11 @@ app.get('/projects', function(req, res) {
 });
 
 app.get('/lottery', function(req, res) {
-  res.render('lottery-solver');
+  res.render('lottery');
+});
+
+app.get('/erg', function(req, res) {
+  res.render('erg');
 });
 
 
