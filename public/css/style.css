@@ -168,12 +168,13 @@ form {
   border-radius: 5px;
   padding: 10px;
 }
-input {
+input,
+.button {
   font-family: "adelle-sans", sans-serif;
   font-size: 16px;
   font-weight: 100;
 }
-input[type=submit] {
+.button {
   background: rgb(101,163,150);
   border-radius: 5px;
   color: white;
@@ -182,7 +183,7 @@ input[type=submit] {
   cursor: hand;
   cursor: pointer;
 }
-input[type=submit]:active {
+.button:active {
   background: rgb(121,183,170);
 }
 section {
