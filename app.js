@@ -1,12 +1,12 @@
 var express = require('express'),
-    exphbs  = require('express3-handlebars'), // "express3-handlebars"
+    exphbs  = require('express3-handlebars'),
     app = express();
 
 /*
   Load static files
 */
 app.use(express.compress());
-app.use(express.static(__dirname + '/views'));
+app.use(express.static(__dirname + '/public'));
 
 
 /*
@@ -44,7 +44,12 @@ app.get('/erg', function(req, res) {
   API
 */
 app.get('/api', function(req, res) {
-   res.send({name:"Kevin",age:20});
+   res.send({
+    name: "Kevin",
+    age: 20,
+    twitterURL: "https://twitter.com/blwsk",
+    githubURL: "https://github.com/blwsk"
+  });
 });
 
 
