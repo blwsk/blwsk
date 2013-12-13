@@ -173,6 +173,18 @@ input {
   font-size: 16px;
   font-weight: 100;
 }
+input[type=submit] {
+  background: rgb(101,163,150);
+  border-radius: 5px;
+  color: white;
+  font-weight: 100;
+  padding: 7px 14px 7px 14px;
+  cursor: hand;
+  cursor: pointer;
+}
+input[type=submit]:active {
+  background: rgb(121,183,170);
+}
 section {
   margin-bottom: 7px;
 }
@@ -206,7 +218,12 @@ section label {
 .type-focus {
   display: none;
 }
-
+.workout-log section {
+  max-width: 600px;
+  border: 1px solid rgb(225,227,229);
+  border-radius: 5px;
+  padding: 10px;
+}
 
 
 /*************************************************
