@@ -39,6 +39,10 @@ app.get('/erg', function(req, res) {
   res.render('erg');
 });
 
+app.get('/notes', function(req, res) {
+  res.render('notes');
+});
+
 
 /*
   API
