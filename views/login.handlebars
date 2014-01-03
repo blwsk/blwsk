@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Login</title>
+<style>
+
+  * {
+    margin: 0; padding: 0; border: 0; outline: none;
+  }
+
+  html,
+  body {
+    background: url(p/login/amsterdam.jpg) no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    font-family: 'lucida grange', sans-serif;
+    font-size: 15px;
+    color: rgb(51,51,51);
+  }
+
+  .overlay {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background: rgba(0,0,0,0.7);
+    z-index: 99;
+  }
+
+  .login {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    width: 140px;
+    background: rgba(255,255,255,0.85);
+    border-radius: 5px;
+    text-align: center;
+    margin-top: -100px;
+    margin-left: -100px;
+
+    padding: 20px;
+    z-index: 100;
+  }
+  .user {
+    height: 80px;
+    width: 80px;
+    border-radius: 40px;
+    margin-bottom: 18px;
+  }
+  .username {
+    margin-bottom: 12px;
+  }
+  .password-input {
+    background: rgba(0,0,0,0.1);
+    border-radius: 5px;
+    font-size: 12px;
+    color: white;
+    text-align: left;
+    padding: 5px 10px 5px 10px;
+  }
+  .password-input:focus {
+    color: rgb(51,51,51);
+  }
+  ::-webkit-input-placeholder {
+    color: rgba(51,51,51,0.5);;
+  }
+
+
+</style>
+</head>
+<body>
+
+  <div class="login">
+    <img src="p/login/dude.jpg" class="user">
+    <div class="username">Jeff Lebowski</div>
+    <input type="password" placeholder="Password" class="password-input" autofocus>
+  </div>
+
+  <div class="overlay"></div>
+
+</body>
+</html>

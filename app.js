@@ -43,6 +43,10 @@ app.get('/notes', function(req, res) {
   res.render('notes', {layout: false});
 });
 
+app.get('/login', function(req, res) {
+  res.render('login', {layout: false});
+});
+
 
 /*
   API
