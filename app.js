@@ -32,7 +32,7 @@ app.get('/projects', function(req, res) {
 });
 
 app.get('/lottery', function(req, res) {
-  res.render('lottery');
+  res.render('lottery', {layout: false});
 });
 
 app.get('/erg', function(req, res) {
@@ -40,7 +40,7 @@ app.get('/erg', function(req, res) {
 });
 
 app.get('/notes', function(req, res) {
-  res.render('notes');
+  res.render('notes', {layout: false});
 });
 
 
