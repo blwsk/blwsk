@@ -67,6 +67,6 @@ var showMobileNav = function() {
     'height': 195
   });
   $('.main').css({
-    'padding-top': 195
+    'padding-top': 57
   });
 }
