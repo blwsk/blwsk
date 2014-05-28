@@ -20,7 +20,10 @@ app.set('view engine', 'handlebars');
   views
 */
 app.get('/', function(req, res) {
+  /*
   res.render('index');
+  */
+  res.send('<html style="font-family: courier;">Kevin Bielawski will be back soon.</html>');
 });
 
 app.get('/about', function(req, res) {
@@ -45,6 +48,14 @@ app.get('/notes', function(req, res) {
 
 app.get('/login', function(req, res) {
   res.render('login', {layout: false});
+});
+
+app.get('/text', function(req, res) {
+  res.render('text', {layout: false});
+});
+
+app.get('/demo', function(req, res) {
+  res.render('demo', {layout: false});
 });
 
 
