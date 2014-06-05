@@ -19,13 +19,17 @@ app.set('view engine', 'handlebars');
 /*
   views
 */
+
 app.get('/', function(req, res) {
-  /*
   res.render('index');
-  */
-  res.send('<html style="font-family: courier;">Kevin Bielawski will be back soon.</html>');
+  //res.send('<html style="font-family: courier;">Kevin Bielawski will be back soon.</html>');
 });
 
+app.get('/datastore', function(req, res) {
+  res.render('datastore', {layout: false});
+});
+
+/*
 app.get('/about', function(req, res) {
   res.render('about');
 });
@@ -57,7 +61,7 @@ app.get('/text', function(req, res) {
 app.get('/demo', function(req, res) {
   res.render('demo', {layout: false});
 });
-
+*/
 
 /*
   API
