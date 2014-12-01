@@ -1,3 +1,7 @@
+/*
+  sass --watch style.scss:style.css
+*/
+
 $slate: rgb(41,41,41);
 $mouse: rgb(121,121,121);
 $grey: rgb(191,191,191);
@@ -17,6 +21,7 @@ body {
   background: white;
   font-family: 'source-code-pro', monospace;
   font-size: 13px;
+  color: $slate;
   line-height: 1.7em;
 }
 
