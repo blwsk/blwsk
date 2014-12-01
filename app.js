@@ -1,7 +1,5 @@
-var express = require('express'),
-    exphbs  = require('express3-handlebars'),
-    routes  = require('./routes/index');
-    app = express();
+var express = require('express');
+var app = express();
 
 //  
 //  static files
@@ -13,7 +11,9 @@ app.use(express.static(__dirname + '/public'));
 //  
 //  routes
 //  
-app.get('*', routes.index);
+var routes  = require('./routes/main');
+app.get('/', routes.index);
+app.get('/api', routes.api);
 
 
 var port = process.env.PORT || 5000;
