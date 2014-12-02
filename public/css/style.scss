@@ -29,6 +29,7 @@ a {
   color: $slate;
   text-decoration: none;
   -webkit-transition: 0.2s color, 0.2s background;
+  cursor: pointer;
 
   &:hover {
     color: white;
@@ -74,6 +75,24 @@ ul.nav {
 
 .branding {
   font-weight: 600;
+}
+
+.header-tag span {
+  @extend a;
+}
+.header-tag {
+  span:hover {
+    color: $slate;
+    background: $fog;
+  }
+}
+.header-tag-selected {
+  span {
+    background: $fog;
+  }
+  span:hover {
+    background: $mist;
+  }
 }
 
 .content-item {

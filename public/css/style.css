@@ -16,11 +16,12 @@ body {
   color: #292929;
   line-height: 1.7em; }
 
-a {
+a, .header-tag span {
   color: #292929;
   text-decoration: none;
-  -webkit-transition: 0.2s color, 0.2s background; }
-  a:hover {
+  -webkit-transition: 0.2s color, 0.2s background;
+  cursor: pointer; }
+  a:hover, .header-tag span:hover {
     color: white;
     background: #292929; }
 
@@ -58,12 +59,21 @@ ul.nav {
 .branding {
   font-weight: 600; }
 
+.header-tag span:hover {
+  color: #292929;
+  background: #f1f1f1; }
+
+.header-tag-selected span {
+  background: #f1f1f1; }
+.header-tag-selected span:hover {
+  background: lightgrey; }
+
 .content-item {
   border-bottom: 1px solid #f1f1f1;
   margin-bottom: 4em; }
   .content-item p {
     padding-bottom: 1em; }
-    .content-item p a {
+    .content-item p a, .content-item p .header-tag span, .header-tag .content-item p span {
       border-bottom: 1px solid #292929; }
 
 .info {
@@ -72,7 +82,7 @@ ul.nav {
     font-weight: 600; }
   .info .link {
     margin-bottom: 0.5em; }
-    .info .link a {
+    .info .link a, .info .link .header-tag span, .header-tag .info .link span {
       border-bottom: 1px solid #292929; }
     .info .link span {
       font-size: 11px;

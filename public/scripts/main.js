@@ -5,7 +5,7 @@ require.config({
     'underscore':     '//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.7.0/underscore-min',
     'backbone':       '//cdnjs.cloudflare.com/ajax/libs/backbone.js/1.1.2/backbone-min',
     'text':           '//cdnjs.cloudflare.com/ajax/libs/require-text/2.0.12/text',
-    'react':          '//cdnjs.cloudflare.com/ajax/libs/react/0.12.0/react.min',
+    'react':          '//cdnjs.cloudflare.com/ajax/libs/react/0.12.1/react-with-addons.min',
     'jsx':            'lib/jsx',
     'JSXTransformer': '//cdnjs.cloudflare.com/ajax/libs/react/0.12.1/JSXTransformer',
     'firebase':       '//cdn.firebase.com/js/client/2.0.4/firebase.js',
