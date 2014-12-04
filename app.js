@@ -14,6 +14,8 @@ app.use(express.static(__dirname + '/public'));
 var routes  = require('./routes/main');
 app.get('/', routes.index);
 app.get('/api', routes.api);
+app.get('/search', routes.search)
+app.get('/search/:query', routes.results);
 
 
 var port = process.env.PORT || 5000;
