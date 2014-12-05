@@ -6,27 +6,16 @@ exports.index = function(req, res) {
 }
 
 
+//
+//  api and search
+//
 var Firebase = require("firebase");
-var firebase = new Firebase("https://resplendent-fire-7278.firebaseio.com/");
-
+var firebaseRoot = new Firebase("https://resplendent-fire-7278.firebaseio.com/");
 exports.api = function(req, res) {
-
-  firebase.push({ 'user_id': 'fred', 'text': 'Yabba Dabba Doo!' });
-
-  /*
-  firebase.set({
-    title: "Hello World!",
-    author: "Firebase",
-    location: {
-      city: "San Francisco",
-      state: "California",
-      zip: 94103
-    }
-  });
-*/
-
-  res.send({
-    'name': 'Kevin Bielawski'
+  firebaseRoot.once('value', function(snapshot) {
+    //  snapshot.forEach( function(child) {});
+    var val = snapshot.val();
+    res.send(val);
   });
 }
 
@@ -34,27 +23,12 @@ exports.search = function(req, res) {
   res.sendfile('views/search.html');
 }
 
+var firebaseSearch = new Firebase("https://resplendent-fire-7278.firebaseio.com/search");
 exports.results = function(req, res) {
+  firebaseSearch.push({
+    'query': req.params.query
+  });
   res.send({
-    "entry": req.params.query
+    "query": req.params.query
   });
 }
-
-
-/*
-  SNIPPETS
-*/
-
-/*
-  var path = req.path;
-  if (path.indexOf('api')==1) {
-    //  signifies that this is an api call
-    res.send({
-      'name': 'kevin'
-    });
-  }
-  else {
-    //  app
-    res.sendfile('index.html');
-  }
-*/
