@@ -1,8 +1,6 @@
-/*
-  sass --watch style.scss:style.css
-*/
 
 $slate: rgb(41,41,41);
+$stone: rgb(61,61,61);
 $mouse: rgb(121,121,121);
 $grey: rgb(191,191,191);
 $mist: rgb(211,211,211);
@@ -13,6 +11,7 @@ $fog: rgb(241,241,241);
   padding: 0;
   border: 0;
   outline: none;
+  -webkit-box-sizing: border-box;
 }
 
 html,
@@ -31,7 +30,8 @@ a {
   -webkit-transition: 0.2s color, 0.2s background;
   cursor: pointer;
 
-  &:hover {
+  &:hover,
+  &:active {
     color: white;
     background: $slate;
   }
@@ -42,11 +42,21 @@ ul {
   list-style-type: none;
 }
 
+
+//
+//  container
+//
 .container {
   margin: 0 auto;
 }
 .container-700 { width: 700px; }
 .container-900 { width: 900px; }
+@media (max-width: 500px) {
+  .container-700,
+  .container-900 {
+    width: 100%;
+  }
+}
 
 
 .layout {}
@@ -61,27 +71,53 @@ ul.nav {
   opacity: 0.25;
   -webkit-transition: 0.2s opacity;
 
+  br {
+    display: none;
+  }
+
   &:hover {
     opacity: 1.0;
   }
 }
+@media (max-width: 500px) {
+  ul.nav {
+    height: 4.7em;
+    width: 100%;
+    float: auto;
+    text-align: left;
+    opacity: 1.0;
+    background: white;
+    border-bottom: 1px solid $fog;
 
-.content {
-  float: left;
-  width: 700px;
-  margin-left: 28%;
-  padding: 1.5em;
+    br {
+      display: block;
+    }
+  }
 }
+
 
 .branding {
   font-weight: 600;
+}
+@media (max-width: 500px) {
+  .branding {
+    float: left;
+  }
+}
+
+.smallTitle {
+  font-size: 10px;
+  font-weight: 700;
+  border-bottom: 1px solid $stone;
+  margin-bottom: 1em;
 }
 
 .header-tag span {
   @extend a;
 }
 .header-tag {
-  span:hover {
+  span:hover,
+  span:active {
     color: $slate;
     background: $fog;
   }
@@ -90,10 +126,82 @@ ul.nav {
   span {
     background: $fog;
   }
-  span:hover {
+  span:hover,
+  span:active {
     background: $mist;
   }
 }
+
+.showMenu {
+  float: right;
+  cursor: pointer;
+  -webkit-transition: 0.2s color, 0.2s background;
+
+  &:active {
+    color: white;
+    background: $slate;
+  }
+}
+
+ul.mobileOpen {
+  height: 100%;
+  background: $slate;
+  color: white;
+  overflow-x: hidden; 
+  overflow-y: auto;
+  -webkit-transition: 0.2s color, 0.2s background;
+
+  a {
+    color: white;
+  }
+
+  li.branding a {
+    color: white;
+  }
+
+  .hideOnMobile {
+    display: block;
+  }
+
+  .header-tag {
+    span:hover,
+    span:active {
+      color: white;
+      background: $stone;
+    }
+  }
+  .header-tag-selected {
+    span {
+      background: $stone;
+    }
+    span:hover,
+    span:active {
+      color: $slate;
+      background: $mist;
+    }
+  }
+}
+
+
+.content {
+  float: left;
+  width: 700px;
+  margin-left: 28%;
+  padding: 1.5em;
+
+  p {
+    padding-bottom: 1em;
+  }
+}
+@media (max-width: 500px) {
+  .content {
+    float: auto;
+    width: 100%;
+    margin: 0;
+    margin-top: 4.7em;
+  }
+}
+
 
 .content-item {
   border-bottom: 1px solid $fog;
@@ -144,20 +252,18 @@ ul.nav {
 
 
 
+@media (min-width: 501px) {
+  .hideOnDesktop {
+    display: none;
+  }
+}
 
 
-
-
-
-
-
-
-
-
-
-
-
-
+@media (max-width: 500px) {
+  .hideOnMobile {
+    display: none;
+  }
+}
 
 
 
