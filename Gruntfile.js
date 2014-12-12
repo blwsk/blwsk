@@ -7,10 +7,23 @@ module.exports = function(grunt) {
       dist: {
         files: {
           'public/css/style.css': 'public/css/style.scss',
-          'public/css/mobile.css': 'public/css/mobile.scss'
+          'public/css/training.css': 'public/css/training.scss'
         },
         options: {
           style: 'compressed'
+        }
+      }
+    },
+
+    requirejs: { 
+      app: { 
+        options: { 
+          findNestedDependencies: true, 
+          mainConfigFile: 'public/scripts/index.js', 
+          baseUrl : 'public/scripts', 
+          name : 'index', 
+          out : 'build.js', 
+          optimize : 'none',
         }
       }
     },
@@ -26,6 +39,7 @@ module.exports = function(grunt) {
 
 
   grunt.loadNpmTasks('grunt-contrib-sass');
+  grunt.loadNpmTasks('grunt-contrib-requirejs');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.registerTask('default', ['watch']);
 

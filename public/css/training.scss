@@ -1,0 +1,165 @@
+
+$slate: rgb(41,41,41);
+$stone: rgb(61,61,61);
+$mouse: rgb(121,121,121);
+$grey: rgb(191,191,191);
+$mist: rgb(211,211,211);
+$fog: rgb(241,241,241);
+
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: none;
+  -webkit-box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  background: white;
+  font-family: 'source-code-pro', monospace;
+  font-size: 13px;
+  color: $slate;
+  line-height: 1.7em;
+}
+
+a {
+  color: $slate;
+  text-decoration: none;
+  -webkit-transition: 0.2s color, 0.2s background;
+  cursor: pointer;
+
+  &:hover,
+  &:active {
+    color: white;
+    background: $slate;
+  }
+}
+
+ul {
+  height: 100%;
+  list-style-type: none;
+}
+
+
+//
+//  container
+//
+.container-700 { margin: 0 auto; width: 700px; }
+.container-900 { margin: 0 auto; width: 900px; }
+@media (max-width: 500px) {
+  .container-700,
+  .container-900 {
+    width: 100%;
+  }
+}
+
+
+
+
+
+
+.nav {
+  width: 100%;
+  position: fixed;
+  background: white;
+  border: 1px solid $fog;
+  padding: 1.5em 0 1.5em 0;
+
+  ul {
+    display: flex;
+    justify-content: space-between;
+
+    li {
+      display: inline;
+      cursor: pointer;
+
+      &:hover,
+      &:active {
+        color: white;
+        background: $slate;
+      }
+    }
+  }
+}
+
+.bcvm {
+  font-weight: 600;
+}
+
+.menuOpen {
+  height: 100%;
+  width: 100%;
+  background: $slate;
+  color: white;
+  border: 0;
+  -webkit-transition: 0.2s color, 0.2s background;
+
+  li {
+    color: white;
+  }
+
+  .menuItems {
+    display: block;
+    margin-top: 1.5em;
+  }
+}
+
+@media (max-width: 500px) {
+
+  .nav {
+    padding: 1.5em 1em 1.5em 1em;
+
+    ul {
+      display: block;
+
+      li {
+        display: block;
+      }
+    }
+  }
+
+  .bcvm { float: left; }
+    
+  .menu { float: right; }
+
+  .menuItems { display: none; }
+
+}
+
+
+
+
+//
+//  Misc. media queries
+//
+@media (min-width: 501px) {
+  .hideOnDesktop {
+    display: none;
+  }
+}
+
+@media (max-width: 500px) {
+  .hideOnMobile {
+    display: none;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

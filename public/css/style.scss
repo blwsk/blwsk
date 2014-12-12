@@ -252,12 +252,49 @@ ul.mobileOpen {
 
 
 
+//
+//  Sticky
+//  
+//  ...component in stream
+//
+.sticky {
+  width: 100%;
+  border: 1px solid $slate;
+  padding: 1.5em;
+  margin-bottom: 5em;
+
+  ul {
+    list-style-type: none;
+    padding: 0px;
+    margin: 0px;
+    padding-left: 1.5em;
+  
+    li {
+      background-image: url(../media/licon.png);
+      background-repeat: no-repeat;
+      background-position: 0px center;
+      background-size: 7px;
+      padding-left: 2em;
+    }
+  }
+
+  a {
+    border-bottom: 1px solid $slate;
+  }
+}
+
+
+
+
+
+//
+//  Misc. media queries
+//
 @media (min-width: 501px) {
   .hideOnDesktop {
     display: none;
   }
 }
-
 
 @media (max-width: 500px) {
   .hideOnMobile {

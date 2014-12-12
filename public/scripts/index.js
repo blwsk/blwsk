@@ -12,6 +12,10 @@ require.config({
     'backfire':       '//cdn.firebase.com/libs/backfire/0.4.0/backfire.min.js'
   },
 
+  jsx: {
+    fileExtension: '.jsx'
+  },
+
   shim: {
     JSXTransformer: {
       exports: 'JSXTransformer'

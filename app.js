@@ -11,8 +11,11 @@ app.use(express.static(__dirname + '/public'));
 //  
 //  routes
 //  
-var routes  = require('./routes/main');
+var routes  = require('./routes/routes');
 app.get('/', routes.index);
+app.get('/wiki', routes.wiki)
+app.get('/training', routes.training);
+app.get('/login', routes.login);
 app.get('/api', routes.api);
 app.get('/search', routes.search)
 app.get('/search/:query', routes.results);

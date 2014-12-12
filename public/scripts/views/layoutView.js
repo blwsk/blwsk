@@ -3,8 +3,9 @@ define([
   'underscore',
   'backbone',
   'react',
-  '../collections/items'
-], function($, _, Backbone, React, Items) {
+  '../collections/items',
+  'jsx!/../views/stickyComponent'
+], function($, _, Backbone, React, Items, Sticky) {
 
   //
   //  React components
@@ -83,8 +84,7 @@ define([
     render: function() {
       return (
         <div className="content">
-          <p>'Last month in Silicon Valley, biologists Jennifer Doudna and Emmanuelle Charpentier showed up in black gowns to receive the $3 million Breakthrough Prize, a glitzy award put on by Internet billionaires including Mark Zuckerberg. They’d won for developing CRISPR-Cas9, a “powerful and general technology” for editing genomes that’s been hailed as a biotechnology breakthrough.'</p>
-          <p>'Not dressing up that night was Feng Zhang (see 35 Innovators Under 35, 2013), a researcher in Cambridge at the MIT-Harvard Broad Institute. But earlier this year Zhang claimed his own reward. In April, he won a broad U.S. patent on CRISPR-Cas9 that could give him and his research center control over just about every important commercial use of the technology.'</p>
+          <Sticky />
         </div>
       );
     }
