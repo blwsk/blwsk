@@ -8,7 +8,7 @@ require.config({
     'react':          '//cdnjs.cloudflare.com/ajax/libs/react/0.12.1/react-with-addons.min',
     'jsx':            'lib/jsx',
     'JSXTransformer': '//cdnjs.cloudflare.com/ajax/libs/react/0.12.1/JSXTransformer',
-    'firebase':       '//cdn.firebase.com/js/client/2.0.4/firebase.js',
+    'firebase':       '//cdn.firebase.com/js/client/2.0.4/firebase',
     'backfire':       '//cdn.firebase.com/libs/backfire/0.4.0/backfire.min.js'
   },
 

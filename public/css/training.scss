@@ -59,7 +59,9 @@ ul {
 
 
 
-
+//
+//  Nav
+//
 .nav {
   width: 100%;
   position: fixed;
@@ -68,8 +70,6 @@ ul {
   padding: 1.5em 0 1.5em 0;
 
   ul {
-    display: flex;
-    justify-content: space-between;
 
     li {
       display: inline;
@@ -82,11 +82,24 @@ ul {
       }
     }
   }
+
+  .menu {
+    display: none;
+  }
 }
 
 .bcvm {
   font-weight: 600;
 }
+
+.links {
+  float: right;
+  li {
+    margin: 0 0 0 2em;
+  }
+}
+
+
 
 .menuOpen {
   height: 100%;
@@ -100,9 +113,20 @@ ul {
     color: white;
   }
 
-  .menuItems {
+  br {
     display: block;
+  }
+
+  .feed {
     margin-top: 1.5em;
+  }
+
+  .links {
+    display: block;
+
+    li {
+      line-height: 2.5em;
+    }
   }
 }
 
@@ -117,19 +141,153 @@ ul {
       li {
         display: block;
       }
+      .bcvm {
+        float: left;
+      }
+      .menu {
+        display: inline;
+        float: right;
+      }
     }
   }
 
-  .bcvm { float: left; }
-    
-  .menu { float: right; }
+  .links {
+    float: left;
+    display: none;
 
-  .menuItems { display: none; }
+    li {
+      padding: 0;
+    }
+  }
 
 }
 
 
 
+
+
+
+//
+//  Content
+//
+.content {
+  padding-top: 6.5em;
+}
+
+.panel {
+  border: 1px solid $slate;
+  padding: 1.5em 1em 1.5em 1em;
+  margin: 0 0 5em 0;
+}
+
+.loginWithFacebook {
+  background: rgb(59,89,153);
+  border-color: rgb(59,89,153);
+  color: white;
+  cursor: pointer;
+}
+
+.suggested {
+  b {
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+
+  ul {
+    list-style-type: none;
+    padding: 0px;
+    margin: 0px;
+    padding-left: 1.5em;
+  
+    li {
+      background-image: url(../media/licon.svg);
+      background-repeat: no-repeat;
+      background-position: 0px center;
+      background-size: 7px;
+      padding-left: 2em;
+    }
+  }
+}
+
+.workout {
+  padding: 0 0 1em 0;
+  border-bottom: 1px solid $fog;
+  margin: 1em 0 1em 0;
+}
+
+  .text {
+    color: $grey;
+  }
+
+  .user {
+    cursor: pointer;
+    -webkit-transition: 0.2s background, 0.2s color;
+
+    &:hover,
+    &:active {
+      background: $slate;
+      color: white;
+    }
+
+    i {
+      background: $slate;
+      color: white;
+      font-weight: 600;
+      padding: 0 4px 0 3px;
+    }
+  }
+
+  .points {}
+
+  .desc {
+    background: $fog;
+    padding: 0 3px 0 3px;
+    cursor: pointer;
+    -webkit-transition: 0.2s background, 0.2s color;
+
+    &:hover,
+    &:active {
+      background: $slate;
+      color: white;
+    }
+  }
+
+
+@media (max-width: 500px) {
+
+  .content {
+    padding: 6.5em 1em 0 1em;
+  }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.hideOnDesktop {
+    display: none;
+  }
 
 //
 //  Misc. media queries
