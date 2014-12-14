@@ -18,7 +18,7 @@ define([
   var LoginWithFacebook = React.createClass({
     login: function() {
       $('.loginWithFacebook').html('...');
-      ref.authWithOAuthPopup('facebook', function(error, authData) {
+      ref.authWithOAuthRedirect('facebook', function(error, authData) {
         if (error) {
           console.log('Login Failed!', error);
         } else {
