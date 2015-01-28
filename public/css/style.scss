@@ -17,6 +17,7 @@ $fog: rgb(238,238,238);
   padding: 0;
   border: 0px;
   outline: none;
+  cursor: pointer;
   -webkit-box-sizing: border-box;
 }
 
@@ -90,6 +91,7 @@ hr {
   transform: translateZ(0); // fix transparent white bug in chrome
   border-bottom: 1px solid $fog;
   z-index: $top;
+  cursor: pointer;
 
   .container {
     display: flex;
