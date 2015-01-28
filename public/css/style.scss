@@ -1,5 +1,6 @@
 
 $top: 999;
+$middle: 99;
 $bottom: 0;
 
 /* Colors */
@@ -72,7 +73,7 @@ hr {
 
 .mask {
   display: none;
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   height: 100%;
@@ -99,6 +100,7 @@ hr {
   border-bottom: 1px solid $fog;
   z-index: $top;
   cursor: pointer;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
 
   .container {
     display: flex;
@@ -133,13 +135,13 @@ hr {
   }
 
   .mobile-button-open {
-    background: url('../media/open.svg') no-repeat;
+    background: url('../media/img/open.svg') no-repeat;
     background-size: 11px;
     background-position: center;
   }
 
   .mobile-button-close {
-    background: url('../media/close.svg') no-repeat;
+    background: url('../media/img/close.svg') no-repeat;
     background-size: 11px;
     background-position: center;
   }
@@ -196,6 +198,7 @@ hr {
 
   .menu-item {
     display: none;
+    z-index: $bottom;
   }
 
   .mobile-menu-open {
