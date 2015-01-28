@@ -9,7 +9,6 @@ app.use(express.static(__dirname + '/public'));
 //  routes
 //  
 var routes  = require('./routes/routes');
-app.get('/api', routes.api);
 app.get('*', routes.index);
 
 
