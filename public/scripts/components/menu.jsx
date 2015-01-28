@@ -31,8 +31,8 @@ var Menu = React.createClass({
       $('.mobile-button').addClass('mobile-button-open');
       $('.menu-item').slideUp(200);
       $('.mask').fadeOut(200);
+      this.setState({menuOpen: !this.state.menuOpen});
     }
-    this.setState({menuOpen: !this.state.menuOpen});
   },
   render: function() {
     return (
