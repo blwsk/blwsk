@@ -8,6 +8,9 @@ var HomeView = require('./components/home');
 var AboutView = require('./components/about');
 var LinksView = require('./components/links');
 var ContactView = require('./components/contact');
+var ComposeView = require('./components/compose.jsx');
+var PostView = require('./components/post.jsx');
+
 
 module.exports = Backbone.Router.extend({
     
@@ -15,7 +18,9 @@ module.exports = Backbone.Router.extend({
     "":         "home",
     "about":    "about",
     "links":    "links",
-    "contact":  "contact"
+    "contact":  "contact",
+    "compose":  "compose",
+    "post/:item":  "post"
   },
 
   home: function() {
@@ -34,8 +39,21 @@ module.exports = Backbone.Router.extend({
     new ContactView;
   },
 
+  compose: function() {
+    new ComposeView;
+  },
+
+  post: function(item) {
+    new PostView({
+      item: item
+    });
+  },
+
   initialize: function() {
-    Backbone.history.start({pushState: true});
+    Backbone.history.start({
+      pushState: true,
+      root: '/'
+    });
     new Menu;
   }
 

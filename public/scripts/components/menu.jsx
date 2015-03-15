@@ -37,7 +37,7 @@ var Menu = React.createClass({
   render: function() {
     return (
       <div className="menu-items container">
-        <div className="kevin"><a href="/">Kevin Bielawski</a></div>
+        <div className="kevin" onClick={this.closeMenu}><a href="/">Kevin Bielawski</a></div>
         <div className="mobile-button mobile-button-open" onClick={this.toggleMenu}></div>
         <div className="menu-divider"></div>
         <div className="menu-item home current" onClick={this.closeMenu}><a href="/">Home</a></div>
