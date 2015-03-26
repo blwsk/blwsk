@@ -2,14 +2,15 @@ var express = require('express');
 var app = express();
 
 app.use(express.compress());
-app.use(express.static(__dirname + '/public'));
+app.use(express.static(__dirname + '/static'));
 
 
 //  
 //  routes
 //  
-var routes  = require('./routes/routes');
-app.get('*', routes.index);
+app.get('*', function(req, res) {
+  res.sendfile('static/index.html');
+});
 
 
 var port = process.env.PORT || 5000;

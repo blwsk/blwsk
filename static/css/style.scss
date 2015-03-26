@@ -313,9 +313,11 @@ section {
     border-bottom: 0;
   }
 
-  p {
-    width: 600px;
+  ul {
+    font-size: 14px;
+    font-family: 'PT Serif', georgia, serif;
   }
+
 }
 
 .title {
@@ -332,7 +334,8 @@ section {
   line-height: 1.5em;
 }
 
-p {
+p,
+.subtitle {
   font-family: 'PT Serif', georgia, serif;
   font-size: 16px;
   line-height: 1.5em;
@@ -343,6 +346,11 @@ p {
   &:first-of-type {
     text-indent: 0;
   }
+}
+
+.subtitle {
+  font-family: 'PT Sans', arial, sans-serif;
+  font-weight: 700;
 }
 
 .img-small {
@@ -377,6 +385,27 @@ code {
   section {
     width: 700px;
     margin: 0 auto;
+  }
+
+  .title {
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 500px) {
+  .post-heading {
+    padding: 20px;
+
+    section {
+      width: 100%;
+    }
+  }
+}
+
+@media (max-width: 700px) {
+  .post-heading {
+    width: 100%;
+    padding: 6em 20px 0 20px;
   }
 }
 

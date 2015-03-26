@@ -2,14 +2,14 @@ var $ = require('jquery');
 var Backbone = require('backbone');
 Backbone.$ = $;
 
-var Menu = require('./components/menu.jsx');
+var Menu = require('babel!./components/menu.jsx');
 
 var HomeView = require('./components/home');
 var AboutView = require('./components/about');
 var LinksView = require('./components/links');
 var ContactView = require('./components/contact');
-var ComposeView = require('./components/compose.jsx');
-var PostView = require('./components/post.jsx');
+var ComposeView = require('babel!./components/compose.jsx');
+var PostView = require('babel!./components/post.jsx');
 
 
 module.exports = Backbone.Router.extend({
