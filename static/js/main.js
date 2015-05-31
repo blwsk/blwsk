@@ -12,7 +12,7 @@ $(document.body).on('click', 'a', function(e){
     e.preventDefault();
   }
   var target = $(this).attr('target');
-  var href = $(this).attr
+  var href = $(this).attr;
   if ( target != '_blank' && hrefChar != 'm' ) {
     Backbone.history.navigate(e.currentTarget.pathname, {trigger: true});
   }
