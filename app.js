@@ -2,9 +2,12 @@ var express = require('express');
 
 // express middleware
 var compression = require('compression');
-var serveStatic = require('serve-static')
+var serveStatic = require('serve-static');
+var favicon = require('serve-favicon');
+
 
 var app = express();
+app.use(favicon(__dirname + '/static/media/favicon.ico'));
 
 
 // development config
