@@ -1,6 +1,6 @@
-var fs = require('fs');
-
 var gulp = require('gulp');
+var fs = require('fs');
+var utils = require('./utils/utils');
 var webpack = require('gulp-webpack');
 var uglify = require('gulp-uglify');
 var sass = require('gulp-sass');
@@ -9,15 +9,10 @@ var uglifycss = require('gulp-uglifycss');
 var s3 = require('gulp-s3');
 
 
-var webpackConfig = {
-  watch: true,
-  watchDelay: 200,
-  output: {
-    filename: "index.js"
-  }
-};
-
+//  webpack
 gulp.task("webpack", function() {
+  var webpackConfig = JSON.parse(fs.readFileSync('./config/webpack.json'));
+
   return gulp.src('static/js/main.js')
     .pipe(webpack(webpackConfig))
     .pipe(uglify())
@@ -25,7 +20,8 @@ gulp.task("webpack", function() {
 });
 
 
-gulp.task('sass', function() {
+//  scss
+gulp.task('scss', function() {
   return gulp.src('static/css/*.scss')
     .pipe(sass())
     //.pipe(concatCss('style.css'))
@@ -34,39 +30,22 @@ gulp.task('sass', function() {
 });
 
 
-/*
-  watch
-*/
+//  watch
 gulp.task('watch', function() {
-  gulp.watch('static/css/*.scss', ['sass']);
+  gulp.watch('static/css/*.scss', ['scss']);
 });
 
 
-/*
-  aws
-*/
-function replaceAll(find, replace, str) {
-  return str.replace(new RegExp(find, 'g'), replace);
-}
-
-var aws = JSON.parse(fs.readFileSync('./aws.json'));
-
-fs.readFile('static/index.html', {encoding: 'utf8'}, function(err, data) {
-  if (err) throw err;
-
-  // replace relative path with cloudfront url
-  var newFile = replaceAll('../build/', 'http://d1xkznn4xi27rh.cloudfront.net/', data);
-
-  // write to new file in static/build directory
-  fs.writeFileSync('static/build/index.html', newFile);
-});
+//  aws
 gulp.task('aws', function() {
+  var awsConfig = JSON.parse(fs.readFileSync('./config/aws.json'));
+  var oldFile = fs.readFileSync('static/index.html', {encoding: 'utf8'});
+  var newFile = utils.replaceAll('../build/', 'http://d1xkznn4xi27rh.cloudfront.net/', oldFile);
+  fs.writeFileSync('static/build/index.html', newFile);
+
   return gulp.src('static/build/**')
-    .pipe(s3(aws));
+    .pipe(s3(awsConfig));
 });
 
 
-/*
-  default
-*/
 gulp.task('default', ['webpack', 'watch']);
