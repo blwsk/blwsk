@@ -1,21 +1,32 @@
 var gulp = require('gulp');
 var fs = require('fs');
-var utils = require('./utils/utils');
+var utils = require('./server/utils');
 var webpack = require('gulp-webpack');
 var uglify = require('gulp-uglify');
 var sass = require('gulp-sass');
 var concatCss = require('gulp-concat-css');
 var uglifycss = require('gulp-uglifycss');
 var s3 = require('gulp-s3');
+var babel = require('gulp-babel');
+var nodemon = require('gulp-nodemon');
 
 
 //  webpack
 gulp.task("webpack", function() {
+  /* old
   var webpackConfig = JSON.parse(fs.readFileSync('./config/webpack.json'));
 
   return gulp.src('static/js/main.js')
     .pipe(webpack(webpackConfig))
-    .pipe(uglify())
+    //.pipe(uglify())
+    .pipe(gulp.dest('static/build/js/'));
+  */
+
+  var webpackConfig = require('./config/webpack.config.js');
+
+  return gulp.src('src/app.jsx')
+    .pipe(webpack(webpackConfig))
+    //.pipe(uglify())
     .pipe(gulp.dest('static/build/js/'));
 });
 
@@ -48,4 +59,14 @@ gulp.task('aws', function() {
 });
 
 
-gulp.task('default', ['webpack', 'watch']);
+//  server
+gulp.task('start', function() {
+  nodemon({
+    script: 'server/app.js',
+    ext: 'js html',
+    env: { 'NODE_ENV': 'development' } 
+  });
+});
+
+
+gulp.task('default', ['webpack', 'watch', 'start']);

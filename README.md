@@ -1,10 +1,13 @@
 #Kevin Bielawski's page
 
-Packages used:
+###Known bugs
+* ...
+
+###Packages used
 * `express` for routing and api
 * `gulp` and requisite `webpack` and `sass` modules for build process
 
-Development and production differences:
+###Development and production differences
 * In development, local assets are served using `express` middleware
 * In production, assets are served using cloudfront (example below)
 
