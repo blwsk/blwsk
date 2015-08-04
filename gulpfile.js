@@ -41,6 +41,9 @@ gulp.task('watch', function() {
 //  aws
 gulp.task('aws', function() {
   /*
+    build index.html file for production
+  */
+  /*
     Invalidating objects removes them from CloudFront edge caches.
     A faster and less expensive method is to use versioned object or directory names.
 
@@ -51,10 +54,33 @@ gulp.task('aws', function() {
   */
 
   var awsConfig = JSON.parse(fs.readFileSync('./config/aws.json'));
-  var oldFile = fs.readFileSync('static/index.html', {encoding: 'utf8'});
-  var newFile = utils.replaceAll('build/', 'http://d1xkznn4xi27rh.cloudfront.net/', oldFile);
-  fs.writeFileSync('static/build/index.html', newFile);
 
+  var time = Date.now();
+  var cssString = time + '.css';
+  var jsString = time + '.js';
+
+  // prepare build/index.html
+  var f = fs.readFileSync('static/index.html', {encoding: 'utf8'});
+  f = utils.replaceAll('build/', 'http://d1xkznn4xi27rh.cloudfront.net/', f);
+  f = utils.replaceAll('style.css', cssString, f);
+  f = utils.replaceAll('app.js', jsString, f);
+  fs.writeFileSync('static/build/index.html', f);
+
+  // prepare css
+  var cssFiles = fs.readdirSync('static/build/css');
+  for (var i=0; i<cssFiles.length; i++)
+    if (cssFiles[i] != 'style.css')
+      fs.unlinkSync('static/build/css/' + cssFiles[i]);
+  var c = fs.renameSync('static/build/css/style.css', 'static/build/css/' + cssString);
+
+  // ...and js
+  var jsFiles = fs.readdirSync('static/build/js');
+  for (var i=0; i<jsFiles.length; i++)
+    if (jsFiles[i] != 'app.js')
+      fs.unlinkSync('static/build/js/' + jsFiles[i]);
+  var j = fs.renameSync('static/build/js/app.js', 'static/build/js/' + jsString);
+
+  // upload
   return gulp.src('static/build/**')
     .pipe(s3(awsConfig));
 });
