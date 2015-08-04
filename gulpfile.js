@@ -40,10 +40,19 @@ gulp.task('watch', function() {
 
 //  aws
 gulp.task('aws', function() {
+  /*
+    Invalidating objects removes them from CloudFront edge caches.
+    A faster and less expensive method is to use versioned object or directory names.
+
+    TODO:
+      use current unix time as version stamp
+      create and push styleXXXXXXXXX...css to S3
+      won't have to invalidate style.css
+  */
+
   var awsConfig = JSON.parse(fs.readFileSync('./config/aws.json'));
   var oldFile = fs.readFileSync('static/index.html', {encoding: 'utf8'});
-  //var newFile = utils.replaceAll('build/', 'http://d1xkznn4xi27rh.cloudfront.net/', oldFile);
-  var newFile = oldFile;
+  var newFile = utils.replaceAll('build/', 'http://d1xkznn4xi27rh.cloudfront.net/', oldFile);
   fs.writeFileSync('static/build/index.html', newFile);
 
   return gulp.src('static/build/**')
