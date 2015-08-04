@@ -42,7 +42,8 @@ gulp.task('watch', function() {
 gulp.task('aws', function() {
   var awsConfig = JSON.parse(fs.readFileSync('./config/aws.json'));
   var oldFile = fs.readFileSync('static/index.html', {encoding: 'utf8'});
-  var newFile = utils.replaceAll('build/', 'http://d1xkznn4xi27rh.cloudfront.net/', oldFile);
+  //var newFile = utils.replaceAll('build/', 'http://d1xkznn4xi27rh.cloudfront.net/', oldFile);
+  var newFile = oldFile;
   fs.writeFileSync('static/build/index.html', newFile);
 
   return gulp.src('static/build/**')
