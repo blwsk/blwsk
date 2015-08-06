@@ -2,7 +2,7 @@ var React = require('react/addons');
 
 var Anchor = require('babel!../components/anchor.jsx');
 
-module.exports = function(item) {
+module.exports = function(item, keyProp) {
   // returns JSX for each possible item type in data array
 
   var key = item[0];
@@ -10,11 +10,11 @@ module.exports = function(item) {
 
   switch(key) {
     case "h1":
-      return (<h1>{val}</h1>);
+      return (<h1 key={keyProp}>{val}</h1>);
       break;
 
     case "h3":
-      return (<h3>{val}</h3>);
+      return (<h3 key={keyProp}>{val}</h3>);
       break;
 
     case "p":
@@ -24,25 +24,27 @@ module.exports = function(item) {
           var h = item[i][1];
           var s = item[i][2];
 
+          var p = Math.floor(Math.random() * 1000000000); // new key prop for child
+
           // is it an array? is it an anchor tag? ...first element in array is tag
           if (Object.prototype.toString.call( item[i] ) === '[object Array]' && item[i][0] == "a")
-            nodes.push(<Anchor href={h} value={s} />);
+            nodes.push(<Anchor key={p} href={h} value={s} />);
           //nodes.push(<a href={h}>{s}</a>);
           else
             nodes.push(item[i]);
         }
-        return (<p>{nodes}</p>);
+        return (<p key={keyProp}>{nodes}</p>);
       }
       else    // else just a regular p
-        return (<p>{val}</p>);
+        return (<p key={keyProp}>{val}</p>);
       break;
 
     case "p.large":
-      return (<p className="large">{val}</p>);
+      return (<p key={keyProp} className="large">{val}</p>);
       break;
 
     case "p img":
-      return (<p><img src={val} /></p>);
+      return (<p key={keyProp}><img src={val} /></p>);
       break;
   }
 }

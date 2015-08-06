@@ -1,3 +1,24 @@
+/*
+
+On mobile...
+  
+  menu
+      hide 'latest'
+      make logo and nav each 50% width
+
+  content
+      stack left col3 over right col6/9
+      make banner full width - padding inside div
+
+  compose
+      ...
+
+
+*/
+
+
+
+
 ///////////////////////////////////////////////////////////
 // 0: vars          ///////////////////////////////////////
 // 1: general       ///////////////////////////////////////
@@ -65,13 +86,12 @@ body {
 // grid system  ///////////////////////////////////////////
 ///////////////////////////////////////////////////////////
 .container {
-  width: 1200px;
+  width: 100%;
+  max-width: 1200px;
   padding: 0 20px 0 20px;
   margin: 0 auto;
 }
 .row {
-  //margin-left: -20px;
-  //margin-right: -20px;
   overflow: auto;
 }
 .col {
@@ -79,12 +99,36 @@ body {
   float: left;
   padding: 0 20px 0 20px;
 }
-.col12 { width:     100%; }
-.col9 { width:      75%; }
-.col6 { width:      50%; }
-.col4 { width:      33.33%; }
-.col3 { width:      25%; }
+.col12 { width: 100%; }
+.col9 { width: 75%; }
+.col6 { width: 50%; }
+.col4 { width: 33.33%; }
+.col3 { width: 25%; }
 
+.mobile-hide {}
+
+@media (max-width: 700px) {
+
+  .container {
+    padding: 0;
+  }
+
+  .col {
+    width: 100%;
+    display: block;
+  }
+
+  .mCol6 {
+    display: inline;
+    float: left;
+    padding: 0 20px 0 20px;
+    width: 50%;
+  }
+
+  .mobile-hide {
+    display: none;
+  }
+}
 
 
 ///////////////////////////////////////////////////////////
@@ -154,12 +198,40 @@ p.pull-right {
   margin-right: -50%;
 }
 
+.small-caps {
+  -ms-font-feature-settings: "smcp";
+  -moz-font-feature-settings: "smcp";
+  -webkit-font-feature-settings: "smcp";
+  font-feature-settings: "smcp";
+}
+
 ul {
   margin: 0;
   list-style-type: none;
 }
 li {
   margin: 0;
+}
+
+@media (max-width: 700px) {
+
+  h1 { font-size: 22px; }
+
+  p {
+    font-size: 17px;
+    line-height: 27px;
+
+    img {
+      //padding: 0 -2em;
+    }
+  }
+
+  p.large {
+    font-size: 17px;
+    line-height: 27px;
+    margin-right: 0;
+  }
+
 }
 
 
@@ -179,6 +251,22 @@ nav {
   font-size: 14px;
   font-weight: 500;
   overflow: auto;
+}
+
+@media (max-width: 700px) {
+
+  nav {
+
+    .mCol6 {
+      &:first-of-type {
+        padding-right: 0;
+      }
+      &:nth-of-type(2) {
+        padding-left: 0;
+      }
+    }
+  }
+
 }
 
 $nav-portion: 25%;
@@ -230,6 +318,7 @@ a[data-current='true'],
 }
 
 .latest {
+  // hidden on mobile
 
   h4 {
     line-height: 24px;
@@ -308,6 +397,27 @@ a[data-current='true'],
       color: $slate;
     }
   }
+}
+
+@media (max-width: 700px) {
+
+  .content {
+    padding: 1em 0 0 0;
+
+    .col {
+      min-height: 0;
+    }
+  }
+
+  .side,
+  .date {
+    margin-bottom: 1em;
+  }
+
+  .banner {
+    margin: 0 -2em;
+  }
+
 }
 
 .compose {

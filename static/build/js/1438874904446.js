@@ -332,56 +332,11 @@
 	module.exports = React.createClass({
 	  displayName: 'exports',
 
-	  //  uses the following CSS:
-	  //    a[data-current='true'] {
-	  //      color: $highlight;
-	  //    }
-
-	  //  this is a fairly convoluted manner of managing current menu tab,
-	  //  but it worksand isn't 'too' much code
-
-	  //  the best part of this is that it doesn't rely on DOM manipulation in the
-	  //  individual views for each page e.g. about.jsx
-	  //  - it is all done here
-
-	  //  not especially decoupled
-
-	  getInitialState: function getInitialState() {
-	    //  gets current window url
-	    var url = window.location.href.toString().split(window.location.host + '/')[1];
-	    if (url == '') url = 'home';
-	    return {
-	      home: url == 'home',
-	      about: url == 'about',
-	      thoughts: url == 'thoughts',
-	      links: url == 'links'
-	    };
-	  },
-
-	  handleClick: function handleClick(event) {
-	    $('.nav-link').each(function () {
-	      $(this).removeClass('current');
-	    });
-	    $(event.target).addClass('current');
-	    var url = window.location.href.toString().split(window.location.host + '/')[1];
-	    if (url == '') url = 'home';
-	    this.setState({
-	      home: url == 'home',
-	      about: url == 'about',
-	      thoughts: url == 'thoughts',
-	      links: url == 'links'
-	    });
-	  },
 	  render: function render() {
-	    var idString = '#' + this.state.url;
 
-	    return React.createElement('nav', null, React.createElement('div', { className: 'col col3' }, React.createElement('div', { className: 'logo' }, React.createElement(Link, { className: 'nav-link', activeClassName: 'current', to: 'home' }, React.createElement(Logo, null)))), React.createElement('div', { className: 'col col3' }, React.createElement('ul', null, React.createElement('li', null, React.createElement(Link, { className: 'nav-link', activeClassName: 'current', to: 'about' }, 'About')), React.createElement('li', null, React.createElement(Link, { className: 'nav-link', activeClassName: 'current', to: 'thoughts' }, 'Thoughts')), React.createElement('li', null, React.createElement(Link, { className: 'nav-link', activeClassName: 'current', to: 'links' }, 'Links')))), React.createElement('div', { className: 'col col6 latest' }, React.createElement(Latest, null)));
+	    return React.createElement('nav', null, React.createElement('div', { className: 'col col3 mCol6' }, React.createElement('div', { className: 'logo' }, React.createElement(Link, { className: 'nav-link', activeClassName: 'current', to: 'home' }, React.createElement(Logo, null)))), React.createElement('div', { className: 'col col3 mCol6' }, React.createElement('ul', null, React.createElement('li', null, React.createElement(Link, { className: 'nav-link', activeClassName: 'current', to: 'about' }, 'About')), React.createElement('li', null, React.createElement(Link, { className: 'nav-link', activeClassName: 'current', to: 'thoughts' }, 'Thoughts')), React.createElement('li', null, React.createElement(Link, { className: 'nav-link', activeClassName: 'current', to: 'links' }, 'Links')))), React.createElement('div', { className: 'col col6 latest mobile-hide' }, React.createElement(Latest, null)));
 	  }
 	});
-	/*
-	<Link className="nav-link" data-current={this.state.home} onClick={this.handleClick} to="home">
-	 <Logo />
-	</Link>*/
 
 /***/ },
 /* 9 */
@@ -2607,9 +2562,11 @@
 	module.exports = function (data) {
 	  var contentNodes = [];
 
+	  var p = Math.floor(Math.random() * 1000000000); // unique key prop
+
 	  // add all nodes
 	  for (var i = 0; i < data.length; i++) {
-	    contentNodes.push(parseItem(data[i]));
+	    contentNodes.push(parseItem(data[i], p + i));
 	  }
 
 	  return contentNodes;
@@ -5553,7 +5510,7 @@
 
 	var Anchor = __webpack_require__(112);
 
-	module.exports = function (item) {
+	module.exports = function (item, keyProp) {
 	  // returns JSX for each possible item type in data array
 
 	  var key = item[0];
@@ -5561,11 +5518,11 @@
 
 	  switch (key) {
 	    case 'h1':
-	      return React.createElement('h1', null, val);
+	      return React.createElement('h1', { key: keyProp }, val);
 	      break;
 
 	    case 'h3':
-	      return React.createElement('h3', null, val);
+	      return React.createElement('h3', { key: keyProp }, val);
 	      break;
 
 	    case 'p':
@@ -5576,22 +5533,24 @@
 	          var h = item[i][1];
 	          var s = item[i][2];
 
+	          var p = Math.floor(Math.random() * 1000000000); // new key prop for child
+
 	          // is it an array? is it an anchor tag? ...first element in array is tag
-	          if (Object.prototype.toString.call(item[i]) === '[object Array]' && item[i][0] == 'a') nodes.push(React.createElement(Anchor, { href: h, value: s }));
+	          if (Object.prototype.toString.call(item[i]) === '[object Array]' && item[i][0] == 'a') nodes.push(React.createElement(Anchor, { key: p, href: h, value: s }));
 	          //nodes.push(<a href={h}>{s}</a>);
 	          else nodes.push(item[i]);
 	        }
-	        return React.createElement('p', null, nodes);
+	        return React.createElement('p', { key: keyProp }, nodes);
 	      } else // else just a regular p
-	        return React.createElement('p', null, val);
+	        return React.createElement('p', { key: keyProp }, val);
 	      break;
 
 	    case 'p.large':
-	      return React.createElement('p', { className: 'large' }, val);
+	      return React.createElement('p', { key: keyProp, className: 'large' }, val);
 	      break;
 
 	    case 'p img':
-	      return React.createElement('p', null, React.createElement('img', { src: val }));
+	      return React.createElement('p', { key: keyProp }, React.createElement('img', { src: val }));
 	      break;
 	  }
 	};
