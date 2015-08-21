@@ -15,7 +15,6 @@
 .col {
   width: 600px;
   margin: 0 auto;
-
   padding: 90px 0;
 
   img {
@@ -24,15 +23,8 @@
     margin-right: -25%;
   }
 
-  h2,
-  h3 {
-    margin-bottom: 1.5em;
-  }
-
-  a {
-    &:hover {
-      color: $blue;
-    }
+  a:hover {
+    color: $blue;
   }
 }
 
@@ -57,15 +49,15 @@
   }
 
   h1:first-of-type {
-    display: block;
+    display: block; // only show <h1> rendered before ReactMarkdown component
   }
+}
 
-  hr {
-    position: absolute;
-    height: 3px;
-    background: $mist;
-    width: 140%;
-  }
+hr {
+  position: absolute;
+  height: 3px;
+  background: $mist;
+  width: 140%;
 }
 
 .date,
@@ -106,7 +98,6 @@
 
   .col {
     width: 100%;
-
     padding: 0;
 
     img {
@@ -114,19 +105,8 @@
     }
   }
 
-  .col.sneak-peek {
-    hr {
-      width: 100%;
-    }
-  }
-
-  .date,
-  .small {
-
-  }
-
-  .more {
-    
+  hr {
+    width: 100%;
   }
 
 }

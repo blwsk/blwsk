@@ -7,6 +7,7 @@ Information
 Web:      http://blwsk.com
 Email:    k@blwsk.com
 Twitter:  @blwsk
+GitHub:   http://github.com/blwsk
 
 Experience
 ===
