@@ -11,7 +11,6 @@ var Links = React.createClass({
           <div className="small">Links</div>
           <ul>
             <li><a href="http://github.com/blwsk" target="_blank">GitHub</a></li>
-            <li><Link to="compose">Compose</Link></li>
           </ul>
         </div>
       </div>

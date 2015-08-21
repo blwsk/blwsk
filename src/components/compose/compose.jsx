@@ -18,6 +18,10 @@ let Compose = React.createClass({
     xhr.open('GET', '/api/is-auth', true);
     xhr.onload = function() {
       let data = JSON.parse(xhr.responseText);
+      if (typeof data.auth === 'undefined') {
+        // not auth'd
+        window.location = '/';
+      }
       this.setState({
         user: data
       });
@@ -126,10 +130,6 @@ let Compose = React.createClass({
   },
 
   delete() {
-
-    //
-    //  Need api end point for /api/delete/:url
-    //  /api/delete/
 
     let xhr = new XMLHttpRequest();
     xhr.open('DELETE', '/api/delete/' + this.props.params.url, true);
