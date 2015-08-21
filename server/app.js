@@ -38,7 +38,7 @@ app.use(session({
   store: new RedisStore({
     client: client
   }),
-  secret: require('../config/secretCode').secretCode,
+  secret: 'this is my super secret code',
   resave: true,
   saveUninitialized: true
 }));
