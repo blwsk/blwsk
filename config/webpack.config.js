@@ -1,8 +1,10 @@
 module.exports = {
   watch: true,
-  watchDelay: 200,
+  watchOptions: {
+    aggregateTimeout: 200
+  },
   output: {
-    filename: 'app.js'
+    filename: 'main.js'
   },
   module: {
     loaders: [

@@ -1,9 +1,16 @@
-var React = require('react/addons');
-var Link = require('react-router').Link;
+import React from 'react/addons';
 
-var ComposeBody = React.createClass({
+import DateString from '../../utils/dateString.js';
+import Delete from 'babel!./delete.jsx';
+
+
+let ComposeBody = React.createClass({
 
   mixins: [React.addons.LinkedStateMixin],
+
+  askDelete() {
+    console.log('Delete?');
+  },
 
   componentDidMount() {
     this.refs.textbox.getDOMNode().focus();
@@ -12,25 +19,24 @@ var ComposeBody = React.createClass({
   render() {
 
     return (
-      <div className="compose-body">
+      <div className="compose-body dark">
         <div className="container">
-          <div className="row">
-            <div className="col col3">
-              <ul>
-                <li className="date">{this.props.date}</li>
-                <li>Tags</li>
-              </ul>
-            </div>
+          <div className="col">
+            <ul>
+              <li className="date">{DateString(this.props.date)}</li>
+            </ul>
 
-            <div className="col col9">
-              <h1>{this.props.title}</h1>
+            <input    type="text"
+                      className="text-input h1"
+                      valueLink={this.props.title} />
 
-              <textarea className="textbox"
-                        ref="textbox" 
-                        onInput={this.props.unsave} 
-                        valueLink={this.props.contentString}></textarea>
+            <textarea className="textbox"
+                      ref="textbox" 
+                      onInput={this.props.unsave} 
+                      valueLink={this.props.content} />
 
-            </div>
+            <Delete doDelete={this.props.delete} />
+
           </div>
         </div>
       </div>

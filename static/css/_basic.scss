@@ -1,0 +1,91 @@
+h1,
+h2,
+h3, {
+
+}
+
+h1 {
+  font-size: 32px;
+  line-height: 1.125em; // 36px
+  margin-bottom: 0.9375em;  // 30px
+}
+
+h2 {
+
+}
+
+h3 {
+
+}
+
+p {
+  font-size: 20px;
+  line-height: 1.5em;
+  margin-bottom: 1.5em;
+
+  a {
+    color: $blue;
+    text-decoration: none;
+  }
+}
+
+a {
+  color: $slate;
+  text-decoration: none;
+  transition: color 0.2s ease-in;
+
+  &:hover,
+  &:focus {
+    color: $husk;
+  }
+  &:active {
+
+  }
+  &:visited {
+
+  }
+}
+
+ul {
+  margin: 0;
+  list-style-type: none;
+}
+li {
+  margin: 0;
+}
+
+svg {
+  -webkit-transition: color 0.2s;
+  fill: currentColor;
+  vertical-align: bottom;
+}
+
+.left {
+  flex: 1;
+  flex-direction: column;
+}
+
+.right {
+  flex: 1;
+  flex-direction: column;
+}
+
+::-webkit-input-placeholder {
+   text-align: center;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+   text-align: center;  
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+   text-align: center;  
+}
+
+:-ms-input-placeholder {  
+   text-align: center; 
+}
+
+.hidden {
+  display: none;
+}

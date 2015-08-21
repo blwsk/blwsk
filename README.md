@@ -1,7 +1,7 @@
 #Kevin Bielawski's page
 
 ###Known bugs
-* ...
+* /api/latest and Latest.jsx
 
 ###Packages used
 * `express` for routing and api

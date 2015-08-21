@@ -34,3 +34,5 @@ node_modules
 
 aws.json
 redis.json
+admin.js
+secret.js

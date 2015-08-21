@@ -1,0 +1,165 @@
+.compose-wrapper {
+  
+}
+
+.compose-menu {
+
+  li a {
+    span {
+      display: inline-block;
+      width: 50%;
+    }
+    span.icon {
+      padding-left: 2em;
+    }
+
+    cursor: pointer;
+  }
+
+  a.back {
+    &:hover {
+      color: $pink;
+    }
+  }
+
+  a.files {
+    &:hover {
+      color: $blue;
+    }
+  }
+
+  a.save {
+    &:hover {
+      color: $green;
+    }
+  }
+
+  a.publish {
+    &:hover {
+      color: $purple;
+    }
+  }
+}
+
+
+.file-tray {
+  
+  max-height: 50%;
+  overflow: scroll;
+  width: 100%;
+
+  ul {
+    margin-top: -8px;
+    margin-bottom: 1.5em;
+
+    &:nth-of-type(2) {
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+  }
+
+  li.list-sub {
+    color: $mist30;
+    font-size: 14px;
+    font-weight: 700;
+    font-family: $sans;
+  }
+
+  li.list-item a {
+    color: $mist70;
+    font-size: 14px;
+    font-weight: 700;
+    font-family: $serif;
+
+    &:hover {
+      color: $mist;
+    }
+  }
+}
+
+.mask {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: $slate;
+  opacity: 0.85;
+  z-index: 998;
+}
+
+.compose-wrapper.dark {
+
+  .menu {
+    background: $slate;
+    border-color: $lightSlate;
+  }
+
+  .file-tray {
+    //display: flex;
+    border-top: 3px solid $lightSlate;
+
+    padding: 10px;
+    margin-left: -10px;
+    margin-right: -10px;
+  }
+
+  .collapse {
+    display: none;
+  }
+
+  nav a {
+    color: $mist;
+  }
+
+  a.files {
+    //color: $blue;
+  }
+  
+}
+
+.compose-body {
+  input,
+  textarea {
+    width: 100%;
+    background: $slate;
+    color: $fog;
+    font-size: 20px;
+    font-family: $mono;
+  }
+
+  input {
+    border-bottom: 3px solid $lightSlate;
+    padding: 1em 0;
+  }
+
+  textarea {
+    min-height: 400px;
+    padding: 1em 0;
+  }
+}
+
+input.delete {
+  width: 50%;
+  background: $lightSlate;
+  border: 0;
+  color: $pink50;
+  cursor: pointer;
+  margin-top: 1em;
+  -webkit-transition: 0.2s background;
+
+  &:hover {
+    background: lighten($lightSlate, 3%);
+  }
+
+  &:active {
+    background: darken($lightSlate, 1%);
+  }
+}
+
+.compose-body.dark {
+  .container {
+    background: $slate;
+  }
+}

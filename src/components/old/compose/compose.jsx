@@ -1,48 +1,12 @@
 import React from 'react/addons';
-import Router from 'react-router';
 import { Link } from 'react-router';
 
-import ComposeMenu from 'babel!./composeMenu.jsx';
+import ComposeHeader from 'babel!./composeHeader.jsx';
 import ComposeBody from 'babel!./composeBody.jsx';
-
-import fetchData from '../../utils/fetchData';
-import dateString from '../../utils/dateString';
-
 
 let Compose = React.createClass({
 
   mixins: [React.addons.LinkedStateMixin],
-
-  loadUser() {
-    let xhr = new XMLHttpRequest();
-    xhr.open('GET', '/api/is-auth', true);
-    xhr.onload = function() {
-      let data = JSON.parse(xhr.responseText);
-      this.setState({
-        user: data
-      });
-    }.bind(this);
-    xhr.send();
-  },
-
-  loadPost() {
-    let path = this.props.params.url;
-    if (typeof path === 'undefined' || path === null) {
-      // this must be the /compose route, not /compose/:url
-    }
-    else {
-      fetchData('/api/items/' + path, function(data) {
-        this.setState({
-          title: data.title,
-          content: data.content,
-          date: dateString(data.date),
-          exists: true
-        });
-      }.bind(this));
-
-      //remember to check for [] ...does not exist
-    }
-  },
 
   newPost() {
     // disabled for now
@@ -74,9 +38,9 @@ let Compose = React.createClass({
     // do save via xhr...
     let xhr = new XMLHttpRequest();
     if (!this.state.exists) // check to see if it has been saved to Redis yet...if not, POST
-      xhr.open('POST', this.state.url, true);
+      xhr.open('POST', '/api', true);
     else  // so it has already been saved to Redis store...use PUT
-      xhr.open('PUT', this.state.url, true);
+      xhr.open('PUT', '/api', true);
     // header
     xhr.setRequestHeader('Content-Type', 'application/json');
     xhr.onreadystatechange = function() {
@@ -111,7 +75,7 @@ let Compose = React.createClass({
 
     // publish with {published: true} to Redis store
     let xhr = new XMLHttpRequest();
-    xhr.open('PUT', this.state.url, true);
+    xhr.open('PUT', '/api', true);
     xhr.setRequestHeader('Content-Type', 'application/json');
     xhr.onreadystatechange = function() {
       if (xhr.readyState == 4 && xhr.status == 200)
@@ -125,22 +89,6 @@ let Compose = React.createClass({
     });
   },
 
-  delete() {
-
-    //
-    //  Need api end point for /api/delete/:url
-    //  /api/delete/
-
-    let xhr = new XMLHttpRequest();
-    xhr.open('DELETE', '/api/delete/' + this.props.params.url, true);
-    xhr.onload = function() {
-      let data = xhr.responseText;
-      console.log(data);
-    }.bind(this);
-    xhr.send();
-
-  },
-
   getInitialState() {
     return {
       title: "Title...",
@@ -150,38 +98,27 @@ let Compose = React.createClass({
       tags: [],
       exists: false,
       saved: false,
-      published: false,
-      url: '/api/items',
-      user: []
+      published: false
     };
-  },
-
-  componentDidMount() {
-    this.loadUser();
-    this.loadPost();
   },
 
 
   render() {
-
     return (
       <div className="compose"> 
 
-        <ComposeMenu
+        <ComposeHeader
           title={this.linkState('title')}
           saved={this.state.saved}
           saveFunc={this.save}
           published={this.state.published}
-          publishFunc={this.publish}
-          user={this.state.user} />
+          publishFunc={this.publish} />
 
         <ComposeBody 
           title={this.linkState('title')}
           date={this.state.date}
           content={this.linkState('content')}
-          unsave={this.unsave}
-          user={this.state.user}
-          delete={this.delete} />
+          unsave={this.unsave} />
 
       </div>
     );

@@ -4,7 +4,7 @@ import ReactMarkdown from 'react-markdown';
 
 import dateString from '../utils/dateString.js';
 
-const About = module.exports = React.createClass({
+const Post = module.exports = React.createClass({
 
   mixins: [ State ],
 
@@ -24,7 +24,8 @@ const About = module.exports = React.createClass({
   },
 
   componentDidMount() {
-    this.loadData('/api/items/' + 'about-me');
+    let url = this.props.params.url;
+    this.loadData('/api/items/' + url);
   },
 
   getInitialState() {

@@ -1,21 +1,46 @@
-var React = require('react/addons');
+import React from 'react/addons';
 
-var parseItem = require('babel!./parseItem.jsx');
-
-module.exports = function(data) {
-  var contentNodes = [];
-
-  var p = Math.floor(Math.random() * 1000000000); // unique key prop
-
-  // add all nodes
-  for (var i = 0; i < data.length; i++) {
-    contentNodes.push(parseItem(data[i], p + i))
-  }
-
-  return contentNodes;
-}
+import Banner from 'babel!./banner.jsx';
+import Content from 'babel!./content.jsx';
 
 /*
+
+
+
+*/
+
+let Home = React.createClass({
+
+  loadData() {
+    let xhr = new XMLHttpRequest();
+    xhr.open('GET', '/api', true);
+    xhr.onload = function() {
+      let data = JSON.parse(xhr.responseText);
+      this.setState({
+        data: data
+      });
+    }.bind(this);
+    xhr.send();
+  },
+
+  addNodes() {
+    let published = [];
+    
+  },
+
+  componentDidMount() {
+    // load data...
+    this.loadData();
+    this.addNodes();
+  },
+
+  getInitialState() {
+    return {
+      data: []
+    };
+  },
+
+  render() {
 
     let msg = [
       ["h3", "My name is Kevin Bielawski. This is my blog."],
@@ -32,4 +57,13 @@ module.exports = function(data) {
       ["p", "An anonymous network. The service aligns like-minded ", ["a", "#", "individuals together"], " to share ideas or help each other with problems. One lists his/her skill sets and is matched with people who need help or advice or simply a person with which to talk."]
     ];
 
-*/
+    return (
+      <div className="content">
+        <Banner data={msg} />
+        <Content data={test} />
+      </div>
+    );
+  }
+});
+
+module.exports = Home;

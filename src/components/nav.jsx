@@ -1,35 +1,48 @@
-//var $ = require('jquery');
-var React = require('react/addons');
-var Link = require('react-router').Link;
+import React from 'react/addons';
+import { Link, Navigation } from 'react-router';
 
-var Logo = require('babel!./logo.jsx');
-var Latest = require('babel!./latest.jsx');
+import Logo from 'babel!./logo.jsx';
 
 
-module.exports = React.createClass({
+const Nav = module.exports = React.createClass({
+
+  mixins: [Navigation],
+
+  doCompose(e) {
+    e.preventDefault();
+    this.transitionTo('compose');
+  },
 
   render: function() {
 
+    let composeNode = [];
+
+    if (this.props.user.auth) {
+      composeNode = (
+        <li>
+          <Link to="compose" onClick={this.doCompose}>Compose</Link>
+        </li>
+      );
+    }
+
     return (
-      <nav>
-        <div className="col col3 mCol6">
-          <div className="logo">
-            <Link className="nav-link" activeClassName="current" to="home">
-              <Logo />
-            </Link>
-          </div>
+      <nav className="nav">
+
+        {/* LEFT */}
+        <div className="logo left">
+          <Link activeClassName="current" to="home">
+            <Logo />
+          </Link>
         </div>
 
-        <div className="col col3 mCol6">
+        {/* RIGHT */}
+        <div className="right">
           <ul>
-            <li><Link className="nav-link" activeClassName="current" to="about">About</Link></li>
-            <li><Link className="nav-link" activeClassName="current" to="thoughts">Thoughts</Link></li>
-            <li><Link className="nav-link" activeClassName="current" to="links">Links</Link></li>
+            <li><Link activeClassName="current" to="about">About</Link></li>
+            <li><Link activeClassName="current" to="activity">Activity</Link></li>
+            <li><Link activeClassName="current" to="links">Links</Link></li>
+            {composeNode}
           </ul>
-        </div>
-
-        <div className="col col6 latest mobile-hide">
-          <Latest />
         </div>
       </nav>
     );

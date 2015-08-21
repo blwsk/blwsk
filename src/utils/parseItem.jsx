@@ -27,8 +27,12 @@ module.exports = function(item, keyProp) {
           var p = Math.floor(Math.random() * 1000000000); // new key prop for child
 
           // is it an array? is it an anchor tag? ...first element in array is tag
-          if (Object.prototype.toString.call( item[i] ) === '[object Array]' && item[i][0] == "a")
-            nodes.push(<Anchor key={p} href={h} value={s} />);
+          if (Object.prototype.toString.call( item[i] ) === '[object Array]') {
+            if (item[i][0] == "a")
+              nodes.push(<Anchor key={p} href={h} value={s} />);
+            else if (item[i][0] == "i")
+              nodes.push(<i>{item[i][1]}</i>)
+          }
           //nodes.push(<a href={h}>{s}</a>);
           else
             nodes.push(item[i]);
@@ -44,7 +48,7 @@ module.exports = function(item, keyProp) {
       break;
 
     case "p img":
-      return (<p key={keyProp}><img src={val} /></p>);
+      return (<p className="imgParent" key={keyProp}><img src={val} /></p>);
       break;
   }
 }

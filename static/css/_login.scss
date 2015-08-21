@@ -1,0 +1,70 @@
+/*
+<form action="/login" method="post">
+  <div>
+  <label>Username:</label>
+  <input type="text" name="username"/><br/>
+  </div>
+  <div>
+  <label>Password:</label>
+  <input type="password" name="password"/>
+  </div>
+  <div>
+  <input type="submit" value="Submit"/>
+  </div>
+</form>
+*/
+
+form.login {
+  width: 100%;
+  max-width: 400px;
+  font-family: $mono;
+  margin: 0 auto;
+
+  label {
+    display: block;
+    font-size: 12px;
+    font-family: $mono;
+    color: $slate;
+    font-weight: 700;
+    margin-bottom: 7px;
+  }
+
+  input {
+    display: block;
+    font-family: $mono;
+    font-size: 16px;
+  }
+
+  input[type=text],
+  input[type=password] {
+    width: 100%;
+    background: $fog;
+    border: 3px solid darken($mist, 5%);
+    color: $pebble;
+    padding: 10px;
+    margin: 0 -10px 20px -10px;
+    box-shadow: 3px 3px 0px 0px $mist;
+  }
+
+  input[type=submit] {
+    width: 100%;
+    background: $husk;
+    text-align: center;
+    font-weight: 700;
+    color: $fog;
+    padding: 10px;
+    margin: 30px -10px;
+    box-shadow: 3px 3px 0px 0px $mist;
+    cursor: pointer;
+    -webkit-transition: background 0.2s, box-shadow 0.2s;
+
+    &:hover,
+    &:focus {
+      box-shadow: 6px 6px 0px 0px $mist;
+      background: lighten($husk, 3%);
+    }
+    &:active {
+      background: darken($husk, 3%);
+    }
+  }
+}

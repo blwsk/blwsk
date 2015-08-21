@@ -1,6 +1,9 @@
 var React = require('react/addons');
+var ReactMarkdown = require('react-markdown');
 
-var createNodes = require('babel!../utils/createNodes.jsx');
+//var createNodes = require('babel!../utils/createNodes.jsx');
+
+var md = require('../utils/markdown.js'); // markdown string
 
 var Content = React.createClass({
   render: function() {
@@ -14,7 +17,7 @@ var Content = React.createClass({
           </div>
 
           <div className="col col6">
-            {contentNodes}
+            <ReactMarkdown source={md} />
           </div>
         </div>
       </div>

@@ -1,23 +1,44 @@
-var React = require('react/addons');
+import React from 'react/addons';
 
-var Nav = require('babel!./nav.jsx');
+import Nav from 'babel!./nav.jsx';
+import Welcome from 'babel!./welcome.jsx';
+import Latest from 'babel!./latest.jsx';
 
-var Menu = React.createClass({
-  getInitialState: function() {
-    return {menuOpen: false};
+
+const Menu = module.exports = React.createClass({
+
+  loadUser() {
+    let xhr = new XMLHttpRequest();
+    xhr.open('GET', this.state.url, true);
+    xhr.onload = function() {
+      let data = JSON.parse(xhr.responseText);
+      this.setState({
+        user: data
+      });
+    }.bind(this);
+    xhr.send();
   },
+
+  componentDidMount() {
+    this.loadUser();
+    var a = new Promise( function() {});
+  },
+
+  getInitialState() {
+    return {
+      url: window.location.protocol + '//' + window.location.host + '/api/is-auth',
+      user: []
+    };
+  },
+
   render: function() {
+
     return (
-      <div className="menu-wrapper">
-        <div className="container">
-          <div className="row">
-            <Nav />
-          </div>
-        </div>
+      <div className="menu">
+        <Nav user={this.state.user} />
+        {/*<Latest />*/}
       </div>
     );
   }
+
 });
-
-
-module.exports = Menu;

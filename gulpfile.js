@@ -1,7 +1,7 @@
 var gulp = require('gulp');
 var fs = require('fs');
 var utils = require('./server/utils');
-var webpack = require('gulp-webpack');
+var webpack = require('webpack-stream');
 var uglify = require('gulp-uglify');
 var sass = require('gulp-sass');
 var concatCss = require('gulp-concat-css');
@@ -15,9 +15,9 @@ var nodemon = require('gulp-nodemon');
 gulp.task("webpack", function() {
   var webpackConfig = require('./config/webpack.config.js');
 
-  return gulp.src('src/app.jsx')
+  return gulp.src('src/main.jsx')
     .pipe(webpack(webpackConfig))
-    //.pipe(uglify())
+    .pipe(uglify())
     .pipe(gulp.dest('static/build/js/'));
 });
 
@@ -26,7 +26,6 @@ gulp.task("webpack", function() {
 gulp.task('scss', function() {
   return gulp.src('static/css/*.scss')
     .pipe(sass())
-    //.pipe(concatCss('style.css'))
     .pipe(uglifycss())
     .pipe(gulp.dest('static/build/css'));
 });
@@ -46,6 +45,7 @@ gulp.task('aws', function() {
 
   var awsConfig = JSON.parse(fs.readFileSync('./config/aws.json'));
 
+  /*
   var time = Date.now();
   var cssString = time + '.css';
   var jsString = time + '.js';
@@ -70,6 +70,7 @@ gulp.task('aws', function() {
     if (jsFiles[i] != 'app.js')
       fs.unlinkSync('static/build/js/' + jsFiles[i]);
   var j = fs.renameSync('static/build/js/app.js', 'static/build/js/' + jsString);
+  */
 
   // upload
   return gulp.src('static/build/**')
