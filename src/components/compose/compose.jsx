@@ -138,7 +138,6 @@ let Compose = React.createClass({
       console.log(data);
     }.bind(this);
     xhr.send();
-
   },
 
   getInitialState() {
