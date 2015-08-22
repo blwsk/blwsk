@@ -1,21 +1,14 @@
 .menu {
-  // Nav
-  // Latest
   display: flex;
   flex-direction: column;
   position: fixed;
-  //height: 100vh;
   width: 25%;
-  //max-width: 400px;
-  //min-width: 370px;
   background: $fog;
   border-right: 3px solid $mist;
   padding: 90px 60px; // 3x2 30px units
 }
 
 .nav {
-  // Logo
-  // ul li
   flex: 1;
   display: flex;
   overflow: auto;
@@ -59,8 +52,6 @@ a.current {
 }
 
 .latest {
-  //flex: none;
-
   h3 {
     font-size: 12px;
     font-weight: 700;
@@ -82,12 +73,14 @@ a.current {
 }
 
 @media (max-width: 700px) {
+  //
+  //  Mobile
+  //
 
   .menu {
+    position: relative;
     display: block;
     width: 100%;
-
-    position: relative;
     background: $fog;
     border-right: 0;
     border-bottom: 3px solid $mist;
@@ -96,13 +89,33 @@ a.current {
     padding-left: 1em;
     padding-right: 1em;
   }
+  .nav {
+    display: block;
+
+    .left,
+    .right {
+      display: inline-block;
+    }
+
+    .left {
+      float: left;
+      width: 50%;
+    }
+
+    .right {
+      width: 50%;
+    }
+  }
 
 }
 
 @media (min-width: 700px) {
+
+  //
+  //  Desktop
+  //
+
   .menu {
-    // Nav
-    // Latest
     display: flex;
     flex-direction: column;
     position: fixed;
