@@ -1,5 +1,10 @@
 #Kevin Bielawski's page
 
+###TODO
+* Use webpack for client *and* server
+* React server rendering
+* Flux-type architecture to manage state
+
 ###Known bugs
 * /api/latest and Latest.jsx
 
