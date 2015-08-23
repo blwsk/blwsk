@@ -9,6 +9,7 @@ var uglifycss = require('gulp-uglifycss');
 var s3 = require('gulp-s3');
 var babel = require('gulp-babel');
 var nodemon = require('gulp-nodemon');
+var autoprefixer = require('gulp-autoprefixer');
 
 
 //  webpack
@@ -26,7 +27,11 @@ gulp.task("webpack", function() {
 gulp.task('scss', function() {
   return gulp.src('static/css/*.scss')
     .pipe(sass())
-    .pipe(uglifycss())
+    //.pipe(uglifycss())
+    .pipe(autoprefixer({
+      browsers: ['last 2 versions'],
+      cascade: false
+    }))
     .pipe(gulp.dest('static/build/css'));
 });
 
