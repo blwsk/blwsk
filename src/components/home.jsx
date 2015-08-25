@@ -36,7 +36,7 @@ const Home = module.exports = React.createClass({
 
     let nodes = this.state.data.map( function(item) {
       return (
-        <SneakPeek title={item.title} content={item.content} url={item.url} />
+        <SneakPeek date={item.date} title={item.title} content={item.content} url={item.url} />
       );
     });
 
