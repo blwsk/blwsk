@@ -1,30 +1,51 @@
 #Kevin Bielawski's page
 
-###TODO
-* Use webpack for client *and* server
+### TODO
+
 * React server rendering
 * Flux-type architecture to manage state
 
-###Known bugs
+### Present bugs
+
+### Fixed bugs
+
 * /api/latest and Latest.jsx
 
-###Packages used
+### Packages used
+
 * `express` for routing and api
+* `redis` as a data store
 * `gulp` and requisite `webpack` and `sass` modules for build process
 
-###Development and production differences
-* In development, local assets are served using `express` middleware
-* In production, assets are served using cloudfront (example below)
+### API (public)
 
-```javascript
-//  aws
-gulp.task('aws', function() {
-  var awsConfig = JSON.parse(fs.readFileSync('./config/aws.json'));
-  var oldFile = fs.readFileSync('static/index.html', {encoding: 'utf8'});
-  var newFile = utils.replaceAll('../build/', 'http://XXXXXXXXXXX.cloudfront.net/', oldFile);
-  fs.writeFileSync('static/build/index.html', newFile);
+###### /login
+Used to authenticate a user based on username/password
 
-  return gulp.src('static/build/**')
-    .pipe(s3(awsConfig));
-});
-```
+###### /api/is-auth
+Used on the client to determine if the user is authenticated
+* Question: can this be removed after the initial page load is handled on the server?
+
+###### /api/keys
+All of the keys in the db
+
+###### /api/all
+Returns JSON for all objects in the db
+
+###### /api/items
+Returns JSON for all objects of type: item
+* See also: `/api/items/:url`
+
+###### /api/published
+Only items marked as published
+
+###### /api/latest
+Most recently published item
+
+### API (private)
+
+###### /api/users
+Contains user objects with passwords hashed via `bcrypt`
+
+###### /api/sessions
+Session data via `session` middleware
