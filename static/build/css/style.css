@@ -34,7 +34,7 @@ p {
   line-height: 1.5em;
   margin-bottom: 1em; }
   p a {
-    color: #536eda;
+    color: #6da4a8;
     text-decoration: none; }
 
 a {
@@ -216,7 +216,7 @@ a.current {
     margin-left: -25%;
     margin-right: -25%; }
   .col a:hover {
-    color: #536eda; }
+    color: #93bcbf; }
 
 .col.sneak-peek {
   position: relative;
@@ -323,7 +323,7 @@ form.login {
 .compose-menu a.back:hover {
   color: #ff71a0; }
 .compose-menu a.files:hover {
-  color: #536eda; }
+  color: #93bcbf; }
 .compose-menu a.save:hover {
   color: #35783d; }
 .compose-menu a.publish:hover {
@@ -383,11 +383,23 @@ form.login {
   font-size: 20px;
   font-family: 'source-code-pro'; }
 .compose-body input {
-  border-bottom: 3px solid #212121;
-  padding: 1em 0; }
+  padding: 1em 0;
+  border-bottom: 3px solid #212121; }
 .compose-body textarea {
-  min-height: 400px;
+  min-height: 60vh;
   padding: 1em 0; }
+.compose-body ul {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  border-bottom: 3px solid #212121; }
+  .compose-body ul input {
+    border-bottom: 0;
+    font-size: 12px;
+    padding: 0 0;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between; }
 
 input.delete {
   width: 50%;

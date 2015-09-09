@@ -36,7 +36,7 @@ const Menu = module.exports = React.createClass({
     return (
       <div className="menu">
         <Nav user={this.state.user} />
-        {/*<Latest />*/}
+        <Latest />
       </div>
     );
   }

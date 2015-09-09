@@ -1,5 +1,5 @@
 .compose-wrapper {
-  
+
 }
 
 .compose-menu {
@@ -43,7 +43,7 @@
 
 
 .file-tray {
-  
+
   max-height: 50%;
   overflow: scroll;
   width: 100%;
@@ -116,7 +116,7 @@
   a.files {
     //color: $blue;
   }
-  
+
 }
 
 .compose-body {
@@ -130,13 +130,25 @@
   }
 
   input {
-    border-bottom: 3px solid $lightSlate;
     padding: 1em 0;
+    border-bottom: 3px solid $lightSlate;
   }
 
   textarea {
-    min-height: 400px;
+    min-height: 60vh;
     padding: 1em 0;
+  }
+
+  ul {
+    display: flex;
+    border-bottom: 3px solid $lightSlate;
+
+    input {
+      border-bottom: 0;
+      font-size: 12px;
+      padding: 0 0;
+      justify-content: space-between;
+    }
   }
 }
 

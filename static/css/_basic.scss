@@ -22,7 +22,7 @@ p {
   margin-bottom: 1em;
 
   a {
-    color: $blue;
+    color: darken($blue, 12%);
     text-decoration: none;
   }
 }
@@ -73,15 +73,15 @@ svg {
 }
 
 :-moz-placeholder { /* Firefox 18- */
-   text-align: center;  
+   text-align: center;
 }
 
 ::-moz-placeholder {  /* Firefox 19+ */
-   text-align: center;  
+   text-align: center;
 }
 
-:-ms-input-placeholder {  
-   text-align: center; 
+:-ms-input-placeholder {
+   text-align: center;
 }
 
 .hidden {

@@ -39,7 +39,7 @@ let Compose = React.createClass({
         this.setState({
           title: data.title,
           content: data.content,
-          date: dateString(data.date),
+          date: data.date,
           exists: true
         });
       }.bind(this));
@@ -104,7 +104,7 @@ let Compose = React.createClass({
     this.save();
 
     let publishedState = true;
-    
+
     // create the object
     let i = {
       title: this.state.title,
@@ -130,7 +130,6 @@ let Compose = React.createClass({
   },
 
   delete() {
-
     let xhr = new XMLHttpRequest();
     xhr.open('DELETE', '/api/delete/' + this.props.params.url, true);
     xhr.onload = function() {
@@ -138,6 +137,13 @@ let Compose = React.createClass({
       console.log(data);
     }.bind(this);
     xhr.send();
+  },
+
+  changeDate(date) {
+    // takes date integer
+    this.setState({
+      date: date
+    });
   },
 
   getInitialState() {
@@ -160,11 +166,10 @@ let Compose = React.createClass({
     this.loadPost();
   },
 
-
   render() {
 
     return (
-      <div className="compose"> 
+      <div className="compose">
 
         <ComposeMenu
           title={this.linkState('title')}
@@ -174,8 +179,9 @@ let Compose = React.createClass({
           publishFunc={this.publish}
           user={this.state.user} />
 
-        <ComposeBody 
+        <ComposeBody
           title={this.linkState('title')}
+          changeDate={this.changeDate}
           date={this.state.date}
           content={this.linkState('content')}
           unsave={this.unsave}

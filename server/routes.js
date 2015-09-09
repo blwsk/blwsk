@@ -3,7 +3,8 @@ var url = require('url');
 var fs = require('fs');
 var _ = require('lodash');
 
-// Item class
+// helpers
+var createArray = require('./utils').createArray;
 var Item = require('./item').Item;
 
 
@@ -12,57 +13,63 @@ var redisURL = url.parse(process.env.REDIS_URL || JSON.parse(fs.readFileSync('./
 var client = redis.createClient(redisURL.port, redisURL.hostname);
 client.auth(redisURL.auth.split(":")[1]);
 
-// note: delete all keys with http://redis.io/commands/flushdb
-
 /*
     routes
 */
 
-var createArray = require('./utils').createArray;
-
 exports.getKeys = function(req, res) {
+  // /api/keys
+
   client.keys('*', function(err, reply) {
     res.json(reply);
   });
 }
 
 exports.getAll = function(req, res) {
-  createArray(client, function(arr) {
-    //console.log(arr.length);
-    res.json(arr);
+  // /api/all
+
+  createArray(client, function(reply) {
+    res.json(reply);
   });
 }
 
 exports.getAllItems = function(req, res) {
-  createArray(client, function(arr) {
-    //console.log(arr.length);
-    var items = arr.filter( function(obj) {
+  // /api/items
+
+  createArray(client, function(reply) {
+    var items = reply.filter( function(obj) {
       try {
         return obj.type == 'item';
       }
       catch (err) {}
+    });
+    items.sort( function(a, b) {
+      return b.date - a.date;
     });
     res.json(items);
   });
 }
 
 exports.getPublishedItems = function(req, res) {
-  createArray(client, function(arr) {
+  createArray(client, function(reply) {
     //console.log(arr.length);
-    var items = arr.filter( function(obj) {
+    var items = reply.filter( function(obj) {
       try {
         return obj.type == 'item' && obj.published == true;
       }
       catch (err) {}
+    });
+    items.sort( function(a, b) {
+      return b.date - a.date;
     });
     res.json(items);
   });
 }
 
 exports.getLatestItem = function(req, res) {
-  createArray(client, function(arr) {
+  createArray(client, function(reply) {
     //console.log(arr.length);
-    var items = arr.filter( function(obj) {
+    var items = reply.filter( function(obj) {
       try {
         return obj.type == 'item' && obj.published == true;
       }
@@ -103,9 +110,8 @@ exports.getItemByUrl = function(req, res) {
 
   var url = req.params.url;
 
-  createArray(client, function(arr) {
-    //console.log(arr.length);
-    var items = arr.filter( function(obj) {
+  createArray(client, function(reply) {
+    var items = reply.filter( function(obj) {
       try {
         return obj.type == 'item' && obj.url == url;
       }
