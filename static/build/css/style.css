@@ -214,7 +214,8 @@ a.current {
   .col img {
     width: 150%;
     margin-left: -25%;
-    margin-right: -25%; }
+    margin-right: -25%;
+    border: 1px solid #e7e7e7; }
   .col a:hover {
     color: #93bcbf; }
 
@@ -231,6 +232,9 @@ a.current {
     display: none; }
   .col.sneak-peek h1:first-of-type {
     display: block; }
+  .col.sneak-peek img {
+    max-width: 100%;
+    margin: auto 0; }
 
 hr {
   position: absolute;

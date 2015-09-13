@@ -21,6 +21,7 @@
     width: 150%;
     margin-left: -25%;
     margin-right: -25%;
+    border: 1px solid $mist;
   }
 
   a:hover {
@@ -50,6 +51,11 @@
 
   h1:first-of-type {
     display: block; // only show <h1> rendered before ReactMarkdown component
+  }
+
+  img {
+    max-width: 100%;
+    margin: auto 0;
   }
 }
 
