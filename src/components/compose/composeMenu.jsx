@@ -1,9 +1,9 @@
 import React from 'react/addons';
 import { Link } from 'react-router';
 
-import Logo from 'babel!../logo.jsx';
-import Icon from 'babel!../icon.jsx';
-import Files from 'babel!./files.jsx';
+import Logo from '../logo.jsx';
+import Icon from '../icon.jsx';
+import Files from './files.jsx';
 
 const ComposeHeader = React.createClass({
 

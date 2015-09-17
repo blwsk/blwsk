@@ -1,7 +1,7 @@
 import React from 'react/addons';
 
-import Post from 'babel!./post.jsx';
-import SneakPeek from 'babel!./sneakPeek.jsx';
+import Post from './post.jsx';
+import SneakPeek from './sneakPeek.jsx';
 
 //
 //  Load stream of posts rendered in SneakPeek nodes

@@ -7,11 +7,13 @@
   <title>{{{title}}}</title>
   <script src="//use.typekit.net/uha2usr.js"></script>
   <script>try{Typekit.load();}catch(e){}</script>
-  <link rel="stylesheet" href="../{{{assetRoot}}}/css/style.css">
+  <link rel="stylesheet" href="{{{assetRoot}}}css/style.css">
 </head>
 <body>
-  {{{body}}}
-  <script src="../{{{assetRoot}}}/js/main.js"></script>
+
+  <div id="application">{{{body}}}</div>
+
+  <script src="{{{assetRoot}}}js/client.js"></script>
   <script>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),

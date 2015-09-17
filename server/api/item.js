@@ -1,4 +1,4 @@
-var utils = require('./utils');
+var utils = require('../utils');
 
 if (!Date.now) {
   Date.now = function now() {

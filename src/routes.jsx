@@ -3,15 +3,15 @@ var Router = require('react-router');
 var Route = Router.Route;
 var History = Router.HistoryLocation;
 
-var App = require('babel!./app.jsx');
-var Home = require('babel!./components/home.jsx');
-var About = require('babel!./components/about.jsx');
-var Links = require('babel!./components/links.jsx');
-var Login = require('babel!./components/login.jsx');
-var Post = require('babel!./components/post.jsx');
-var Compose = require('babel!./components/compose/compose.jsx');
+var App = require('./app.jsx');
+var Home = require('./components/home.jsx');
+var About = require('./components/about.jsx');
+var Links = require('./components/links.jsx');
+var Login = require('./components/login.jsx');
+var Post = require('./components/post.jsx');
+var Compose = require('./components/compose/compose.jsx');
 
-var routes = module.exports = [
+var routes = module.exports = (
   <Route>
     <Route name="compose" path="/compose" handler={Compose} />
     <Route name="edit" path="/compose/:url" handler={Compose} />
@@ -26,4 +26,4 @@ var routes = module.exports = [
     </Route>
 
   </Route>
-];
+);
