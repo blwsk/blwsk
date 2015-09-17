@@ -50,10 +50,20 @@ r.get('*', function(req, res) {
   Router.run(routes, location, function(Handler) {
     var markup = React.renderToString(<Handler/>);
 
-    res.render('template', {
-      title: 'Kevin Bielawski',
-      body: markup
-    });
+    if (process.env.NODE_ENV == 'production') {
+      res.render('template', {
+        title: 'Kevin Bielawski',
+        body: markup,
+        assetRoot: 'https://s3.amazonaws.com/blwsk/'
+      });
+    }
+    else { // dev
+      res.render('template', {
+        title: 'Kevin Bielawski',
+        body: markup,
+        assetRoot: '../'
+      });
+    }
   });
   
 });

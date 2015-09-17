@@ -44,7 +44,7 @@ gulp.task('watch', function() {
 gulp.task('aws', function() {
   var awsConfig = JSON.parse(fs.readFileSync('./config/aws.json'));
   
-  return gulp.src('static/media/**')
+  return gulp.src('build/**')
     .pipe(s3(awsConfig));
 });
 
