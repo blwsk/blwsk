@@ -1,21 +1,8 @@
-var redis = require('redis');
-var url = require('url');
-var fs = require('fs');
-var _ = require('lodash');
-
-// helpers
-var createArray = require('./utils').createArray;
+var client = require('../db').client;
+var createArray = require('../utils').createArray;
 var Item = require('./item').Item;
 
-
-// setup
-var redisURL = url.parse(process.env.REDIS_URL || JSON.parse(fs.readFileSync('./config/redis.json')).REDIS_URL);
-var client = redis.createClient(redisURL.port, redisURL.hostname);
-client.auth(redisURL.auth.split(":")[1]);
-
-/*
-    routes
-*/
+// api routes
 
 exports.getKeys = function(req, res) {
   // /api/keys

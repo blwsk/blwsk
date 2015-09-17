@@ -1,7 +1,0 @@
-{
-  "watch": true,
-  "watchDelay": 200,
-  "output": {
-    "filename": "index.js"
-  }
-}

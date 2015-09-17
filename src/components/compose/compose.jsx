@@ -2,8 +2,8 @@ import React from 'react/addons';
 import Router from 'react-router';
 import { Link } from 'react-router';
 
-import ComposeMenu from 'babel!./composeMenu.jsx';
-import ComposeBody from 'babel!./composeBody.jsx';
+import ComposeMenu from './composeMenu.jsx';
+import ComposeBody from './composeBody.jsx';
 
 import fetchData from '../../utils/fetchData';
 import dateString from '../../utils/dateString';

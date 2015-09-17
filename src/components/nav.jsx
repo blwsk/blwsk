@@ -1,7 +1,7 @@
 import React from 'react/addons';
 import { Link, Navigation } from 'react-router';
 
-import Logo from 'babel!./logo.jsx';
+import Logo from './logo.jsx';
 
 
 const Nav = module.exports = React.createClass({

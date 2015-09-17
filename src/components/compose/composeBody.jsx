@@ -1,7 +1,7 @@
 import React from 'react/addons';
 
 import DateString from '../../utils/dateString.js';
-import Delete from 'babel!./delete.jsx';
+import Delete from './delete.jsx';
 
 
 let ComposeBody = React.createClass({

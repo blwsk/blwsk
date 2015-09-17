@@ -4,7 +4,7 @@ module.exports = {
     aggregateTimeout: 200
   },
   output: {
-    filename: 'main.js'
+    filename: 'client.js'
   },
   module: {
     loaders: [

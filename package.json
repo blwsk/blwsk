@@ -17,6 +17,7 @@
     "express": "^4.12.4",
     "express-session": "^1.11.3",
     "handlebars": "^3.0.3",
+    "hbs": "^3.1.1",
     "lodash": "^3.10.0",
     "multer": "^0.1.8",
     "react": "^0.13.x",

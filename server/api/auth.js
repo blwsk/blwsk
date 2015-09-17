@@ -1,15 +1,9 @@
-var redis = require('redis');
-var url = require('url');
-var fs = require('fs');
 var bcrypt = require('bcrypt');
+var client = require('../db').client;
+var createArray = require('../utils').createArray;
 
-var createArray = require('./utils').createArray;
 
-// redis client
-var redisURL = url.parse(process.env.REDIS_URL || JSON.parse(fs.readFileSync('./config/redis.json')).REDIS_URL);
-var client = redis.createClient(redisURL.port, redisURL.hostname);
-client.auth(redisURL.auth.split(":")[1]);
-
+// auth routes
 
 exports.getUsers = function(req, res) {
   // GET /api/users
