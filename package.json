@@ -5,7 +5,7 @@
   "main": "server/app.js",
   "scripts": {
     "dev": "gulp --harmony",
-    "start": "node --harmony server/app.js",
+    "start": "node --harmony server/server.js",
     "deploy": "git push origin master && git push heroku master && gulp --harmony aws"
   },
   "dependencies": {
