@@ -1,20 +1,22 @@
 #Kevin Bielawski's page
 
 ### TODO
-
 * React server rendering
+  * Load entire page, not just Menu component
+  * e.g. load entire markdown generated React components
 * Flux-type architecture to manage state
 
 ### Present bugs
+* See React server rendering (above)
+  * Does not render full page on server
 
 ### Fixed bugs
-
 * /api/latest and Latest.jsx
 
 ### Packages used
-
 * `express` for routing and api
 * `redis` as a data store
+* `react` and `react-router`
 * `gulp` and requisite `webpack` and `sass` modules for build process
 
 ### API (public)
