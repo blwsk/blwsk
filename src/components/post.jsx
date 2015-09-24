@@ -13,7 +13,7 @@ const Post = module.exports = React.createClass({
     xhr.open('GET', url, true);
     xhr.onload = function() {
       let data = JSON.parse(xhr.responseText);
-      console.log(data);
+      
       this.setState({
         date: dateString(data.date),
         title: data.title,
@@ -24,8 +24,12 @@ const Post = module.exports = React.createClass({
   },
 
   componentDidMount() {
-    let url = this.props.params.url;
-    this.loadData('/api/items/' + url);
+    try {
+      let url = this.props.url || this.props.params.url;
+      this.loadData('/api/items/' + url);
+    } catch (err) {}
+    
+    //this.loadData('/api/items/' + url);
   },
 
   getInitialState() {

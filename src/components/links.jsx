@@ -1,21 +1,15 @@
-var React = require('react/addons');
-var Link = require('react-router').Link;
+import React from 'react/addons';
+import { State } from 'react-router';
+import ReactMarkdown from 'react-markdown';
 
-var Links = React.createClass({
+import Post from './post.jsx';
 
+const Links = module.exports = React.createClass({
 
   render() {
+    
     return (
-      <div className="container">
-        <div className="col">
-          <div className="small">Links</div>
-          <ul>
-            <li><a href="http://github.com/blwsk" target="_blank">GitHub</a></li>
-          </ul>
-        </div>
-      </div>
+      <Post url="links" />
     );
   }
 });
-
-module.exports = Links;

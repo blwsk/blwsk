@@ -1,7 +1,7 @@
 
 // fonts
 $sans: 'Avenir', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-$serif: 'ff-tisa-web-pro', georgia, times, serif;
+$serif: 'freight-text-pro', georgia, times, serif;
 $mono: 'source-code-pro';
 
 // colors
@@ -54,3 +54,5 @@ body {
 @import 'login';
 @import 'compose';
 @import 'icon';
+@import 'photos';
+@import 'splash';

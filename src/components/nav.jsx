@@ -31,7 +31,7 @@ const Nav = module.exports = React.createClass({
         {/* LEFT */}
         <div className="logo left">
           <Link activeClassName="current" to="home">
-            <Logo />
+            <Logo scale={1} />
           </Link>
         </div>
 

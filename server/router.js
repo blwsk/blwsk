@@ -9,6 +9,7 @@ var routes = require('../src/routes.jsx');
 var client = require('./db').client;
 var api = require('./api/api');
 var auth = require('./api/auth');
+var gallery = require('./api/gallery');
 
 
 var r = express.Router();
@@ -35,6 +36,11 @@ r.get('/api/items/:url', api.getItemByUrl);
 r.post('/api/items', auth.checkAuth, api.postItem); // make sure authenticated
 r.put('/api/items', auth.checkAuth, api.putItem); // make sure authenticated
 r.delete('/api/delete/:url', auth.checkAuth, api.deleteItem); // make sure authenticated
+
+r.get('/api/photos', gallery.getPhotos);
+r.get('/api/photos/published', gallery.getPublishedPhotos);
+r.post('/api/photos/:id', gallery.postPhoto);
+r.delete('/api/photos/:id', gallery.deletePhoto);
 
 
 // react server rendering
