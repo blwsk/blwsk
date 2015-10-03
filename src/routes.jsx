@@ -12,6 +12,7 @@ var Post = require('./components/post.jsx');
 var Compose = require('./components/compose/compose.jsx');
 var Gallery = require('./components/photos/gallery.jsx');
 var Splash = require('./components/splash/splash.jsx');
+var New = require('./components/new/new.jsx');
 
 var routes = module.exports = (
   <Route>
@@ -21,6 +22,8 @@ var routes = module.exports = (
     <Route name="photos" path="/photos" handler={Gallery} />
 
     <Route name="splash" path="/splash" handler={Splash} />
+
+    <Route name="new" path="/new" handler={New} />
 
     <Route handler={App}>
       <Route name="home" path="/" handler={Home} />
