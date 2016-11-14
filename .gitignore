@@ -28,13 +28,3 @@ node_modules
 
 # Debug log from npm
 npm-debug.log
-
-.sass-cache
-node_modules
-
-aws.json
-redis.json
-admin.js
-secretCode.js
-
-build
